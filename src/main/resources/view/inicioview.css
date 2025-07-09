@@ -5,3 +5,8 @@
 .mainFxmlClass {
 
 }
+
+.letrasInicio {
+    -fx-text-fill: rgb(48,87,118);
+    -fx-font-family: 'Times New Roman';
+}
