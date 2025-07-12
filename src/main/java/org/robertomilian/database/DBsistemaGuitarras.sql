@@ -60,7 +60,7 @@ Create table DetalleCompra(
 -- *******************PROCEDIMIENTOS ALMACENADOS****************************
 
 
--- USUARIOS
+-- -------------USUARIOS
 
 
 DELIMITER $$
@@ -115,8 +115,71 @@ DELIMITER ;
 
 call sp_listarUsuarios();
 
+-- editar
 
--- PRODUCTOS
+
+DELIMITER $$
+
+create procedure sp_editarUsuario(
+    in p_idUsuario int,
+    in p_nombre varchar(50),
+    in p_apellido varchar(50),
+    in p_email varchar(100),
+    in p_telefono varchar(20),
+    in p_direccion varchar(255),
+    in p_fechaRegistro datetime,
+    in p_contrasena varchar(255))
+begin
+    update Usuarios U
+    set
+        U.nombreUsuario = p_nombre,
+        U.apellidoUsuario = p_apellido,
+        U.emailUsuario = p_email,
+        U.telefonoUsuario = p_telefono,
+        U.direccionUsuario = p_direccion,
+        U.fechaRegistro = p_fechaRegistro,
+        U.contraseña = p_contrasena
+    where U.idUsuario = p_idUsuario;
+end $$
+
+DELIMITER ;
+
+-- eliminar
+
+
+DELIMITER $$
+
+create procedure sp_eliminarUsuario(in p_idUsuario int)
+begin
+    delete from Usuarios where idUsuario = p_idUsuario;
+end $$
+
+DELIMITER ;
+
+
+-- buscar
+
+DELIMITER $$
+
+create procedure sp_buscarUsuario(in p_idUsuario int)
+begin
+    select
+        U.idUsuario as ID,
+        U.nombreUsuario as NOMBRE,
+        U.apellidoUsuario as APELLIDO,
+        U.emailUsuario as EMAIL,
+        U.telefonoUsuario as TELEFONO,
+        U.direccionUsuario as DIRECCION,
+        U.fechaRegistro as FECHA_REGISTRO,
+        U.contraseña as CONTRASENA
+    from Usuarios U
+    where U.idUsuario = p_idUsuario;
+end $$
+
+DELIMITER ;
+
+
+-- -------------PRODUCTOS
 
 
 DELIMITER $$
@@ -173,8 +236,73 @@ DELIMITER ;
 
 call sp_listarProductos();
 
+-- editar
 
--- COMPRAS
+
+DELIMITER $$
+
+create procedure sp_editarProducto(
+    in p_idProducto int,
+    in p_nombre varchar(255),
+    in p_descripcion text,
+    in p_precio decimal(10,2),
+    in p_stock int,
+    in p_categoria varchar(100),
+    in p_marca varchar(100),
+    in p_fechaCreacion datetime)
+begin
+    update Productos P
+    set
+        P.nombreProducto = p_nombre,
+        P.descripcionProducto = p_descripcion,
+        P.precio = p_precio,
+        P.stock = p_stock,
+        P.categoria = p_categoria,
+        P.marca = p_marca,
+        P.fechaCreacion = p_fechaCreacion
+    where P.idProducto = p_idProducto;
+end $$
+
+DELIMITER ;
+
+-- eliminar
+
+
+DELIMITER $$
+
+create procedure sp_eliminarProducto(in p_idProducto int)
+begin
+    delete from Productos where idProducto = p_idProducto;
+end $$
+
+DELIMITER ;
+
+
+-- buscar
+
+
+DELIMITER $$
+
+create procedure sp_buscarProducto(in p_idProducto int)
+begin
+    select
+        P.idProducto as ID,
+        P.nombreProducto as NOMBRE,
+        P.descripcionProducto as DESCRIPCION,
+        P.precio as PRECIO,
+        P.stock as STOCK,
+        P.categoria as CATEGORIA,
+        P.marca as MARCA,
+        P.fechaCreacion as FECHA_CREACION
+    from Productos P
+    where P.idProducto = p_idProducto;
+end $$
+
+DELIMITER ;
+
+
+
+-- -------------COMPRAS
 
 
 DELIMITER $$
@@ -228,8 +356,64 @@ DELIMITER ;
 
 call sp_listarCompras();
 
+-- editar
 
---  DETALLE COMPRA
+
+DELIMITER $$
+
+create procedure sp_editarCompra(
+    in p_idOrden int,
+    in p_idUsuario int,
+    in p_fechaOrden datetime,
+    in p_totalOrden decimal(10,2),
+    in p_estadoOrden varchar(50))
+begin
+    update Compras C
+    set
+        C.idUsuario = p_idUsuario,
+        C.fechaOrden = p_fechaOrden,
+        C.totalOrden = p_totalOrden,
+        C.estadoOrden = p_estadoOrden
+    where C.idOrden = p_idOrden;
+end $$
+
+DELIMITER ;
+
+-- eliminar
+
+DELIMITER $$
+
+create procedure sp_eliminarCompra(in p_idOrden int)
+begin
+    delete from Compras where idOrden = p_idOrden;
+end $$
+
+DELIMITER ;
+
+-- buscar
+
+
+DELIMITER $$
+
+create procedure sp_buscarCompra(in p_idOrden int)
+begin
+    select
+        C.idOrden as ID_ORDEN,
+        C.idUsuario as ID_USUARIO,
+        U.nombreUsuario as NOMBRE_USUARIO,
+        U.apellidoUsuario as APELLIDO_USUARIO,
+        C.fechaOrden as FECHA_ORDEN,
+        C.totalOrden as TOTAL_ORDEN,
+        C.estadoOrden as ESTADO_ORDEN
+    from Compras C
+    join Usuarios U on C.idUsuario = U.idUsuario
+    where C.idOrden = p_idOrden;
+end $$
+
+DELIMITER ;
+
+
+-- -------------DETALLE COMPRA
 
 
 DELIMITER $$
@@ -283,3 +467,60 @@ end $$
 DELIMITER ;
 
 call sp_listarDetalleCompra();
+
+-- editar
+
+
+DELIMITER $$
+
+create procedure sp_editarDetalleCompra(
+    in p_idDetalleOrden int,
+    in p_idOrden int,
+    in p_idProducto int,
+    in p_cantidad int,
+    in p_precioUnitario decimal(10,2))
+begin
+    update DetalleCompra DC
+    set
+        DC.idOrden = p_idOrden,
+        DC.idProducto = p_idProducto,
+        DC.cantidad = p_cantidad,
+        DC.precioUnitario = p_precioUnitario
+    where DC.idDetalleOrden = p_idDetalleOrden;
+end $$
+
+DELIMITER ;
+
+-- eliminar
+
+DELIMITER $$
+
+create procedure sp_eliminarDetalleCompra(in p_idDetalleOrden int)
+begin
+    delete from DetalleCompra where idDetalleOrden = p_idDetalleOrden;
+end $$
+
+DELIMITER ;
+
+-- buscar
+
+DELIMITER $$
+
+create procedure sp_buscarDetalleCompra(in p_idDetalleOrden int)
+begin
+    select
+        DC.idDetalleOrden as ID_DETALLE,
+        DC.idOrden as ID_ORDEN,
+        P.nombreProducto as PRODUCTO,
+        DC.cantidad as CANTIDAD,
+        DC.precioUnitario as PRECIO_UNITARIO,
+        (DC.cantidad * DC.precioUnitario) as SUBTOTAL
+    from DetalleCompra DC
+    join Productos P on DC.idProducto = P.idProducto
+    where DC.idDetalleOrden = p_idDetalleOrden;
+end $$
+
+DELIMITER ;
+
+
+-- finnn
