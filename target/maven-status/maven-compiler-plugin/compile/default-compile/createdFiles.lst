@@ -1,3 +1,14 @@
+org\robertomilian\controller\TablaUsuariosController.class
+org\robertomilian\controller\TablaComprasController.class
+org\robertomilian\model\Usuarios.class
 org\robertomilian\controller\InicioController.class
 org\robertomilian\system\Main.class
+org\robertomilian\controller\RegistrarseController.class
+org\robertomilian\model\Compras.class
+org\robertomilian\controller\TablaDetalleCompraController.class
+org\robertomilian\controller\TablaGuitarrasController.class
+org\robertomilian\model\DetalleCompra.class
+org\robertomilian\model\Productos.class
+org\robertomilian\controller\ProductosController.class
+org\robertomilian\controller\InicioSesionController.class
 org\robertomilian\database\Conexion.class
