@@ -21,8 +21,8 @@ import javafx.scene.control.TableView;
 import javafx.scene.control.TextField;
 import javafx.scene.control.cell.PropertyValueFactory;
 import org.robertomilian.database.Conexion;
-import org.robertomilian.model.Compras;
-import org.robertomilian.model.Usuarios;
+import org.robertomilian.model.Compra;
+import org.robertomilian.model.Usuario;
 import org.robertomilian.system.Main;
 
 
@@ -35,19 +35,19 @@ public class TablaComprasController implements Initializable {
 
     private Main principal;
     
-    @FXML private TableView<Compras> tablaCompras;
+    @FXML private TableView<Compra> tablaCompras;
     @FXML private TableColumn colIdOrden, colIdUsuario, colFechaOrden, colTotalOrden, colEstadoOrden;
 
     @FXML private TextField txtIdOrden, txtTotalOrden, txtBuscar;
     @FXML private DatePicker dpFechaOrden;
-    @FXML private ComboBox<Usuarios> cbxUsuarios;
+    @FXML private ComboBox<Usuario> cbxUsuarios;
     @FXML private TextField txtEstadoOrden;
 
     @FXML private Button btnNuevo, btnEditar, btnEliminar, btnGuardar, btnCancelar;
     @FXML private Button btnSiguiente, btnAnterior, btnMenu;
 
-    private ObservableList<Compras> listaCompras;
-    private ObservableList<Usuarios> listaUsuarios;
+    private ObservableList<Compra> listaCompras;
+    private ObservableList<Usuario> listaUsuarios;
 
     private enum Operacion {NINGUNA, NUEVO, EDITAR}
     private Operacion tipoOperacion = Operacion.NINGUNA;
@@ -78,8 +78,8 @@ public class TablaComprasController implements Initializable {
         colEstadoOrden.setCellValueFactory(new PropertyValueFactory<>("estadoOrden"));
     }
 
-    private ArrayList<Compras> obtenerCompras() {
-        ArrayList<Compras> lista = new ArrayList<>();
+    private ArrayList<Compra> obtenerCompras() {
+        ArrayList<Compra> lista = new ArrayList<>();
         try (CallableStatement cs = Conexion.getInstancia().getConexion()
                                             .prepareCall("call sp_listarCompras();");
              ResultSet rs = cs.executeQuery()) {
@@ -87,7 +87,7 @@ public class TablaComprasController implements Initializable {
                 Timestamp ts = rs.getTimestamp("FECHA_ORDEN");
                 LocalDateTime fechaOrden = (ts != null) ? ts.toLocalDateTime() : null;
 
-                lista.add(new Compras(
+                lista.add(new Compra(
                         rs.getInt("ID_ORDEN"),
                         rs.getInt("ID_USUARIO"),
                         fechaOrden,
@@ -97,7 +97,7 @@ public class TablaComprasController implements Initializable {
             }
         } catch (SQLException e) {
             e.printStackTrace();
-            System.out.println("Error al obtener compras: " + e.getMessage());
+            System.out.println("Error al obtener Compra: " + e.getMessage());
         }
         return lista;
     }
@@ -114,14 +114,14 @@ public class TablaComprasController implements Initializable {
     }
 
     private void cargarCompraSeleccionada() {
-        Compras c = tablaCompras.getSelectionModel().getSelectedItem();
+        Compra c = tablaCompras.getSelectionModel().getSelectedItem();
         if (c != null) {
             txtIdOrden.setText(String.valueOf(c.getIdOrden()));
             txtIdOrden.setDisable(true);
             dpFechaOrden.setValue(c.getFechaOrden() != null ? c.getFechaOrden().toLocalDate() : null);
             txtTotalOrden.setText(String.valueOf(c.getTotalOrden()));
 
-            for (Usuarios u : listaUsuarios) {
+            for (Usuario u : listaUsuarios) {
                 if (u.getIdUsuario() == c.getIdUsuario()) {
                     cbxUsuarios.setValue(u);
                     break;
@@ -133,13 +133,13 @@ public class TablaComprasController implements Initializable {
         }
     }
 
-    private ArrayList<Usuarios> obtenerUsuariosParaComboBox() {
-        ArrayList<Usuarios> usuarios = new ArrayList<>();
+    private ArrayList<Usuario> obtenerUsuariosParaComboBox() {
+        ArrayList<Usuario> Usuario = new ArrayList<>();
         try (CallableStatement cs = Conexion.getInstancia().getConexion()
                                             .prepareCall("call sp_listarUsuarios();");
              ResultSet rs = cs.executeQuery()) {
             while (rs.next()) {
-                usuarios.add(new Usuarios(
+                Usuario.add(new Usuario(
                         rs.getInt("ID"),
                         rs.getString("NOMBRE"),
                         rs.getString("APELLIDO"),
@@ -148,9 +148,9 @@ public class TablaComprasController implements Initializable {
             }
         } catch (SQLException e) {
             e.printStackTrace();
-            System.out.println("Error al cargar usuarios para ComboBox: " + e.getMessage());
+            System.out.println("Error al cargar Usuario para ComboBox: " + e.getMessage());
         }
-        return usuarios;
+        return Usuario;
     }
 
     private void cargarUsuarios() {
@@ -158,7 +158,7 @@ public class TablaComprasController implements Initializable {
         cbxUsuarios.setItems(listaUsuarios);
     }
 
-    private Compras obtenerDatosFormulario() {
+    private Compra obtenerDatosFormulario() {
         int idOrden = txtIdOrden.getText().isEmpty() ? 0 : Integer.parseInt(txtIdOrden.getText());
         
         int idUsuario = 0;
@@ -187,7 +187,7 @@ public class TablaComprasController implements Initializable {
             estadoOrden = "Pendiente";
         }
 
-        return new Compras(
+        return new Compra(
                 idOrden,
                 idUsuario,
                 fechaOrden,
@@ -244,7 +244,7 @@ public class TablaComprasController implements Initializable {
 
     @FXML
     private void clicEliminar() {
-        Compras c = tablaCompras.getSelectionModel().getSelectedItem();
+        Compra c = tablaCompras.getSelectionModel().getSelectedItem();
         if (c != null) {
             try (CallableStatement cs = Conexion.getInstancia().getConexion()
                                                 .prepareCall("call sp_eliminarCompra(?);")) {
@@ -264,7 +264,7 @@ public class TablaComprasController implements Initializable {
 
     @FXML
     private void clicGuardar() {
-        Compras compra = obtenerDatosFormulario();
+        Compra compra = obtenerDatosFormulario();
         try {
             if (tipoOperacion == Operacion.NUEVO) {
                 try (CallableStatement cs = Conexion.getInstancia().getConexion()
@@ -327,8 +327,8 @@ public class TablaComprasController implements Initializable {
     @FXML
     private void buscarCompra() {
         String texto = txtBuscar.getText().toLowerCase();
-        ArrayList<Compras> resultados = new ArrayList<>();
-        for (Compras c : listaCompras) {
+        ArrayList<Compra> resultados = new ArrayList<>();
+        for (Compra c : listaCompras) {
             if (String.valueOf(c.getIdOrden()).contains(texto) ||
                 String.valueOf(c.getIdUsuario()).contains(texto) ||
                 (c.getEstadoOrden() != null && c.getEstadoOrden().toLowerCase().contains(texto)) ||

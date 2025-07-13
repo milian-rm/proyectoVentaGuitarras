@@ -1,12 +1,13 @@
 package org.robertomilian.model;
 
 import java.time.LocalDateTime;
+import java.time.LocalDateTime;
 
 /**
  *
  * @author Bradley Oliva
  */
-public class Usuarios {
+public class Usuario {
 
     private int idUsuario;
     private String nombreUsuario;
@@ -17,10 +18,10 @@ public class Usuarios {
     private LocalDateTime fechaRegistro;
     private String contraseña;
 
-    public Usuarios() {
+    public Usuario() {
     }
 
-    public Usuarios(int idUsuario, String nombreUsuario, String apellidoUsuario,
+    public Usuario(int idUsuario, String nombreUsuario, String apellidoUsuario,
                     String emailUsuario, String telefonoUsuario, String direccionUsuario,
                     LocalDateTime fechaRegistro, String contraseña) {
         this.idUsuario = idUsuario;

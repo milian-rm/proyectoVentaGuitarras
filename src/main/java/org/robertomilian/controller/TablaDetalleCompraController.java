@@ -19,8 +19,8 @@ import javafx.scene.control.TextField;
 import javafx.scene.control.cell.PropertyValueFactory;
 import org.robertomilian.database.Conexion;
 import org.robertomilian.model.DetalleCompra;
-import org.robertomilian.model.Compras;
-import org.robertomilian.model.Productos;
+import org.robertomilian.model.Compra;
+import org.robertomilian.model.Producto;
 import org.robertomilian.system.Main;
 
 /**
@@ -36,15 +36,15 @@ public class TablaDetalleCompraController implements Initializable {
     @FXML private TableColumn colIdDetalleOrden, colIdOrden, colIdProducto, colCantidad, colPrecioUnitario;
 
     @FXML private TextField txtIdDetalleOrden, txtCantidad, txtPrecioUnitario, txtBuscar;
-    @FXML private ComboBox<Compras> cbxOrdenes;
-    @FXML private ComboBox<Productos> cbxProductos;
+    @FXML private ComboBox<Compra> cbxOrdenes;
+    @FXML private ComboBox<Producto> cbxProductos;
 
     @FXML private Button btnNuevo, btnEditar, btnEliminar, btnGuardar, btnCancelar;
     @FXML private Button btnSiguiente, btnAnterior, btnMenu;
 
     private ObservableList<DetalleCompra> listaDetalleCompra;
-    private ObservableList<Compras> listaOrdenes;
-    private ObservableList<Productos> listaProductos;
+    private ObservableList<Compra> listaOrdenes;
+    private ObservableList<Producto> listaProductos;
 
     private enum Operacion {NINGUNA, NUEVO, EDITAR}
     private Operacion tipoOperacion = Operacion.NINGUNA;
@@ -116,13 +116,13 @@ public class TablaDetalleCompraController implements Initializable {
             txtCantidad.setText(String.valueOf(dc.getCantidad()));
             txtPrecioUnitario.setText(String.valueOf(dc.getPrecioUnitario()));
 
-            for (Compras o : listaOrdenes) {
+            for (Compra o : listaOrdenes) {
                 if (o.getIdOrden() == dc.getIdOrden()) {
                     cbxOrdenes.setValue(o);
                     break;
                 }
             }
-            for (Productos p : listaProductos) {
+            for (Producto p : listaProductos) {
                 if (p.getIdProducto() == dc.getIdProducto()) {
                     cbxProductos.setValue(p);
                     break;
@@ -133,13 +133,13 @@ public class TablaDetalleCompraController implements Initializable {
         }
     }
 
-    private ArrayList<Compras> obtenerOrdenesParaComboBox() {
-        ArrayList<Compras> ordenes = new ArrayList<>();
+    private ArrayList<Compra> obtenerOrdenesParaComboBox() {
+        ArrayList<Compra> ordenes = new ArrayList<>();
         try (CallableStatement cs = Conexion.getInstancia().getConexion()
                                             .prepareCall("call sp_listarCompras();");
              ResultSet rs = cs.executeQuery()) {
             while (rs.next()) {
-                ordenes.add(new Compras(
+                ordenes.add(new Compra(
                         rs.getInt("ID_ORDEN"),
                         rs.getInt("ID_USUARIO"),
                         null,
@@ -159,13 +159,13 @@ public class TablaDetalleCompraController implements Initializable {
         cbxOrdenes.setItems(listaOrdenes);
     }
 
-    private ArrayList<Productos> obtenerProductosParaComboBox() {
-        ArrayList<Productos> productos = new ArrayList<>();
+    private ArrayList<Producto> obtenerProductosParaComboBox() {
+        ArrayList<Producto> Producto = new ArrayList<>();
         try (CallableStatement cs = Conexion.getInstancia().getConexion()
                                             .prepareCall("call sp_listarProductos();");
              ResultSet rs = cs.executeQuery()) {
             while (rs.next()) {
-                productos.add(new Productos(
+                Producto.add(new Producto(
                         rs.getInt("ID"),
                         rs.getString("NOMBRE"),
                         null,
@@ -178,9 +178,9 @@ public class TablaDetalleCompraController implements Initializable {
             }
         } catch (SQLException e) {
             e.printStackTrace();
-            System.out.println("Error al cargar productos para ComboBox: " + e.getMessage());
+            System.out.println("Error al cargar Producto para ComboBox: " + e.getMessage());
         }
-        return productos;
+        return Producto;
     }
 
     private void cargarProductos() {

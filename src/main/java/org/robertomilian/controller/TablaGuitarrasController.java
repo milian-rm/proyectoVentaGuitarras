@@ -22,7 +22,7 @@ import javafx.scene.control.TableView;
 import javafx.scene.control.TextField;
 import javafx.scene.control.cell.PropertyValueFactory;
 import org.robertomilian.database.Conexion;
-import org.robertomilian.model.Productos;
+import org.robertomilian.model.Producto;
 import org.robertomilian.system.Main;
 import javafx.scene.control.DatePicker;
 
@@ -35,7 +35,7 @@ public class TablaGuitarrasController implements Initializable {
 
     private Main principal;
 
-    @FXML private TableView<Productos> tablaProductos;
+    @FXML private TableView<Producto> tablaProductos;
     @FXML private TableColumn colId, colNombre, colDescripcion, colPrecio, colStock, colCategoria, colMarca, colFechaCreacion;
 
     @FXML private TextField txtId, txtNombre, txtDescripcion, txtPrecio, txtStock, txtCategoria, txtMarca, txtBuscar;
@@ -44,7 +44,7 @@ public class TablaGuitarrasController implements Initializable {
     @FXML private Button btnNuevo, btnEditar, btnEliminar, btnGuardar, btnCancelar;
     @FXML private Button btnSiguiente, btnAnterior, btnMenu;
 
-    private ObservableList<Productos> listaProductos;
+    private ObservableList<Producto> listaProductos;
 
     private enum Operacion {NINGUNA, NUEVO, EDITAR}
     private Operacion tipoOperacion = Operacion.NINGUNA;
@@ -88,8 +88,8 @@ public class TablaGuitarrasController implements Initializable {
         }
     }
 
-    private ArrayList<Productos> obtenerProductos() {
-        ArrayList<Productos> lista = new ArrayList<>();
+    private ArrayList<Producto> obtenerProductos() {
+        ArrayList<Producto> lista = new ArrayList<>();
         try (CallableStatement cs = Conexion.getInstancia().getConexion()
                                             .prepareCall("CALL sp_listarProductos();");
              ResultSet rs = cs.executeQuery()) {
@@ -97,7 +97,7 @@ public class TablaGuitarrasController implements Initializable {
                 Timestamp ts = rs.getTimestamp("FECHA_CREACION");
                 LocalDateTime fechaCreacion = (ts != null) ? ts.toLocalDateTime() : null;
 
-                lista.add(new Productos(
+                lista.add(new Producto(
                         rs.getInt("ID"),
                         rs.getString("NOMBRE"),
                         rs.getString("DESCRIPCION"),
@@ -115,7 +115,7 @@ public class TablaGuitarrasController implements Initializable {
     }
 
     private void cargarProductoSeleccionado() {
-        Productos p = tablaProductos.getSelectionModel().getSelectedItem();
+        Producto p = tablaProductos.getSelectionModel().getSelectedItem();
         if (p != null) {
             txtId.setText(String.valueOf(p.getIdProducto()));
             txtNombre.setText(p.getNombreProducto());
@@ -134,7 +134,7 @@ public class TablaGuitarrasController implements Initializable {
         }
     }
 
-    private Productos obtenerDatosFormulario() {
+    private Producto obtenerDatosFormulario() {
         int id = txtId.getText().isEmpty() ? 0 : Integer.parseInt(txtId.getText());
         BigDecimal precio = txtPrecio.getText().isEmpty() ? BigDecimal.ZERO : new BigDecimal(txtPrecio.getText());
         int stock = txtStock.getText().isEmpty() ? 0 : Integer.parseInt(txtStock.getText());
@@ -146,7 +146,7 @@ public class TablaGuitarrasController implements Initializable {
             fechaCreacion = null;
         }
 
-        return new Productos(
+        return new Producto(
                 id,
                 txtNombre.getText(),
                 txtDescripcion.getText(),
@@ -211,7 +211,7 @@ public class TablaGuitarrasController implements Initializable {
 
     @FXML
     private void clicEliminar() {
-        Productos p = tablaProductos.getSelectionModel().getSelectedItem();
+        Producto p = tablaProductos.getSelectionModel().getSelectedItem();
         if (p != null) {
             try {
                 CallableStatement cs = Conexion.getInstancia().getConexion()
@@ -231,7 +231,7 @@ public class TablaGuitarrasController implements Initializable {
 
     @FXML
     private void clicGuardar() {
-        Productos producto = obtenerDatosFormulario();
+        Producto producto = obtenerDatosFormulario();
         try {
             if (tipoOperacion == Operacion.NUEVO) {
                 CallableStatement cs = Conexion.getInstancia().getConexion()
@@ -310,8 +310,8 @@ public class TablaGuitarrasController implements Initializable {
     @FXML
     private void buscarProducto() {
         String texto = txtBuscar.getText().toLowerCase();
-        ArrayList<Productos> resultados = new ArrayList<>();
-        for (Productos p : listaProductos) {
+        ArrayList<Producto> resultados = new ArrayList<>();
+        for (Producto p : listaProductos) {
             if (p.getNombreProducto().toLowerCase().contains(texto) ||
                 p.getDescripcionProducto().toLowerCase().contains(texto) ||
                 p.getCategoria().toLowerCase().contains(texto) ||

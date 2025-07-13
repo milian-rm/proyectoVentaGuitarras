@@ -23,7 +23,7 @@ import javafx.scene.control.TableView;
 import javafx.scene.control.TextField;
 import javafx.scene.control.cell.PropertyValueFactory;
 import org.robertomilian.database.Conexion;
-import org.robertomilian.model.Usuarios;
+import org.robertomilian.model.Usuario;
 import org.robertomilian.system.Main;
 import javafx.scene.control.PasswordField;
 /**
@@ -37,7 +37,7 @@ public class TablaUsuariosController implements Initializable {
 
     private Main principal;
 
-    @FXML private TableView<Usuarios> tablaUsuarios;
+    @FXML private TableView<Usuario> tablaUsuarios;
     @FXML private TableColumn colIdUsuario, colNombreUsuario, colApellidoUsuario, colEmailUsuario, colTelefonoUsuario, colDireccionUsuario, colFechaRegistro, colContrasena;
 
     @FXML private TextField txtIdUsuario, txtNombreUsuario, txtApellidoUsuario, txtEmailUsuario, txtTelefonoUsuario, txtDireccionUsuario, txtBuscar;
@@ -47,7 +47,7 @@ public class TablaUsuariosController implements Initializable {
     @FXML private Button btnNuevo, btnEditar, btnEliminar, btnGuardar, btnCancelar;
     @FXML private Button btnSiguiente, btnAnterior, btnMenu;
 
-    private ObservableList<Usuarios> listaUsuarios;
+    private ObservableList<Usuario> listaUsuarios;
 
     private enum Operacion {NINGUNA, NUEVO, EDITAR}
     private Operacion tipoOperacion = Operacion.NINGUNA;
@@ -91,8 +91,8 @@ public class TablaUsuariosController implements Initializable {
         }
     }
 
-    private ArrayList<Usuarios> obtenerUsuarios() {
-        ArrayList<Usuarios> lista = new ArrayList<>();
+    private ArrayList<Usuario> obtenerUsuarios() {
+        ArrayList<Usuario> lista = new ArrayList<>();
         try (CallableStatement cs = Conexion.getInstancia().getConexion()
                                             .prepareCall("CALL sp_listarUsuarios();");
              ResultSet rs = cs.executeQuery()) {
@@ -100,7 +100,7 @@ public class TablaUsuariosController implements Initializable {
                 Timestamp ts = rs.getTimestamp("FECHA_REGISTRO");
                 LocalDateTime fechaRegistro = (ts != null) ? ts.toLocalDateTime() : null;
 
-                lista.add(new Usuarios(
+                lista.add(new Usuario(
                         rs.getInt("ID"),
                         rs.getString("NOMBRE"),
                         rs.getString("APELLIDO"),
@@ -113,13 +113,13 @@ public class TablaUsuariosController implements Initializable {
             }
         } catch (SQLException e) {
             e.printStackTrace();
-            System.out.println("Error al obtener usuarios: " + e.getMessage());
+            System.out.println("Error al obtener Usuario: " + e.getMessage());
         }
         return lista;
     }
 
     private void cargarUsuarioSeleccionado() {
-        Usuarios u = tablaUsuarios.getSelectionModel().getSelectedItem();
+        Usuario u = tablaUsuarios.getSelectionModel().getSelectedItem();
         if (u != null) {
             txtIdUsuario.setText(String.valueOf(u.getIdUsuario()));
             txtNombreUsuario.setText(u.getNombreUsuario());
@@ -138,7 +138,7 @@ public class TablaUsuariosController implements Initializable {
         }
     }
 
-    private Usuarios obtenerDatosFormulario() {
+    private Usuario obtenerDatosFormulario() {
         int id = txtIdUsuario.getText().isEmpty() ? 0 : Integer.parseInt(txtIdUsuario.getText());
         
         LocalDateTime fechaRegistro;
@@ -148,7 +148,7 @@ public class TablaUsuariosController implements Initializable {
             fechaRegistro = null;
         }
 
-        return new Usuarios(
+        return new Usuario(
                 id,
                 txtNombreUsuario.getText(),
                 txtApellidoUsuario.getText(),
@@ -213,7 +213,7 @@ public class TablaUsuariosController implements Initializable {
 
     @FXML
     private void clicEliminar() {
-        Usuarios u = tablaUsuarios.getSelectionModel().getSelectedItem();
+        Usuario u = tablaUsuarios.getSelectionModel().getSelectedItem();
         if (u != null) {
             try {
                 CallableStatement cs = Conexion.getInstancia().getConexion()
@@ -234,7 +234,7 @@ public class TablaUsuariosController implements Initializable {
 
     @FXML
     private void clicGuardar() {
-        Usuarios usuario = obtenerDatosFormulario();
+        Usuario usuario = obtenerDatosFormulario();
         try {
             if (tipoOperacion == Operacion.NUEVO) {
                 CallableStatement cs = Conexion.getInstancia().getConexion()
@@ -312,8 +312,8 @@ public class TablaUsuariosController implements Initializable {
     @FXML
     private void buscarUsuario() {
         String texto = txtBuscar.getText().toLowerCase();
-        ArrayList<Usuarios> resultados = new ArrayList<>();
-        for (Usuarios u : listaUsuarios) {
+        ArrayList<Usuario> resultados = new ArrayList<>();
+        for (Usuario u : listaUsuarios) {
             if (String.valueOf(u.getIdUsuario()).contains(texto) ||
                 (u.getNombreUsuario() != null && u.getNombreUsuario().toLowerCase().contains(texto)) ||
                 (u.getApellidoUsuario() != null && u.getApellidoUsuario().toLowerCase().contains(texto)) ||

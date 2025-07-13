@@ -1,3 +1,7 @@
-org\robertomilian\controller\InicioController.class
+org\robertomilian\controller\TablaComprasController.class
 org\robertomilian\system\Main.class
+org\robertomilian\model\Usuario.class
+org\robertomilian\controller\ProductosController.class
+org\robertomilian\controller\TablaComprasController$Operacion.class
+org\robertomilian\model\Compra.class
 org\robertomilian\database\Conexion.class

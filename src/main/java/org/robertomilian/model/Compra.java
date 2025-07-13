@@ -7,7 +7,7 @@ import java.math.BigDecimal;
  *
  * @author Bradley Oliva
  */
-public class Compras {
+public class Compra {
 
     private int idOrden;
     private int idUsuario;
@@ -15,10 +15,10 @@ public class Compras {
     private BigDecimal totalOrden;
     private String estadoOrden;
 
-    public Compras() {
+    public Compra() {
     }
 
-    public Compras(int idOrden, int idUsuario, LocalDateTime fechaOrden,
+    public Compra(int idOrden, int idUsuario, LocalDateTime fechaOrden,
                    BigDecimal totalOrden, String estadoOrden) {
         this.idOrden = idOrden;
         this.idUsuario = idUsuario;

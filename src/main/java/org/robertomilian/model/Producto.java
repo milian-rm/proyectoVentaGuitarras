@@ -7,7 +7,7 @@ import java.math.BigDecimal;
  *
  * @author Bradley Oliva
  */
-public class Productos {
+public class Producto {
 
     private int idProducto;
     private String nombreProducto;
@@ -18,10 +18,10 @@ public class Productos {
     private String marca;
     private LocalDateTime fechaCreacion;
 
-    public Productos() {
+    public Producto() {
     }
 
-    public Productos(int idProducto, String nombreProducto, String descripcionProducto,
+    public Producto(int idProducto, String nombreProducto, String descripcionProducto,
                      BigDecimal precio, int stock, String categoria, String marca,
                      LocalDateTime fechaCreacion) {
         this.idProducto = idProducto;
