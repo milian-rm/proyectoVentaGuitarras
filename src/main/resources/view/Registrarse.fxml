@@ -14,7 +14,7 @@
    <children>
       <Label layoutX="58.0" layoutY="149.0" styleClass="estiloTexto" text="Nombre:" AnchorPane.topAnchor="149.0" />
       <Label layoutX="58.0" layoutY="236.0" styleClass="estiloTexto" text="Apellido:" AnchorPane.topAnchor="236.0" />
-      <DatePicker fx:id="dpFechaRegistro" layoutX="473.0" layoutY="-125.0" prefHeight="38.0" prefWidth="215.0" styleClass="estiloTF" />
+      <DatePicker fx:id="dpFechaRegistro" disable="true" layoutX="473.0" layoutY="-125.0" prefHeight="38.0" prefWidth="215.0" styleClass="estiloTF" />
       <Label layoutX="96.0" layoutY="331.0" styleClass="estiloTexto" />
       <Button fx:id="btnCrearCuenta" layoutX="260.0" layoutY="400.0" mnemonicParsing="false" onAction="#agregarUsuario" prefHeight="72.0" prefWidth="187.0" styleClass="estiloBoton" text="Crear" />
       <Label layoutX="419.0" layoutY="149.0" styleClass="estiloTexto" text="Correo:" AnchorPane.topAnchor="149.0" />
@@ -27,7 +27,7 @@
             <String fx:value="presionar" />
          </styleClass>
       </Button>
-      <TextField fx:id="txtIdUsuario" layoutX="14.0" layoutY="-144.0" prefHeight="38.0" prefWidth="215.0" />
+      <TextField fx:id="txtIdUsuario" disable="true" layoutX="14.0" layoutY="-144.0" prefHeight="38.0" prefWidth="215.0" />
       <TextField fx:id="txtNombre" layoutX="114.0" layoutY="137.0" prefHeight="38.0" prefWidth="215.0" styleClass="estiloTF" AnchorPane.topAnchor="137.0" />
       <TextField fx:id="txtApellido" layoutX="115.0" layoutY="224.0" prefHeight="38.0" prefWidth="215.0" styleClass="estiloTF" AnchorPane.topAnchor="224.0" />
       <TextField fx:id="txtContraseña" layoutX="115.0" layoutY="322.0" prefHeight="38.0" prefWidth="215.0" styleClass="estiloTF" AnchorPane.topAnchor="322.0" />
@@ -41,7 +41,7 @@
                   <Font size="28.0" />
                </font>
             </Label>
-            <Button layoutX="546.0" layoutY="23.0" mnemonicParsing="false" prefHeight="49.0" prefWidth="140.0" styleClass="estiloBotonSecundario" text="Menu Principal" />
+            <Button layoutX="546.0" layoutY="23.0" mnemonicParsing="false" onAction="#escenaInicio" prefHeight="49.0" prefWidth="140.0" styleClass="estiloBotonSecundario" text="Inicio" />
             <ImageView fitHeight="88.0" fitWidth="364.0" layoutX="14.0" layoutY="7.0" pickOnBounds="true" preserveRatio="true">
                <image>
                   <Image url="@../image/logoGuitarKinal(1).png" />

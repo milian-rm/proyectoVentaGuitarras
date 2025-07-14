@@ -20,16 +20,16 @@
         <URL value="@tablaguitarrasview.css" />
     </stylesheets>
    <children>
-      <TableView layoutX="72.0" layoutY="164.0" prefHeight="286.0" prefWidth="834.0">
+      <TableView fx:id="tablaProductos" layoutX="72.0" layoutY="164.0" prefHeight="286.0" prefWidth="834.0">
         <columns>
-          <TableColumn prefWidth="75.0" text="ID" />
-          <TableColumn prefWidth="97.0" text="Nombre" />
-            <TableColumn prefWidth="166.5" text="Descripción" />
-            <TableColumn prefWidth="65.16668701171875" text="Precio" />
-            <TableColumn prefWidth="65.16665649414062" text="Stock" />
-            <TableColumn prefWidth="111.66665649414062" text="Categoría" />
-            <TableColumn prefWidth="104.5" text="Marca" />
-            <TableColumn prefWidth="148.66668701171875" text="Fecha de Creación" />
+          <TableColumn fx:id="colId" prefWidth="75.0" text="ID" />
+          <TableColumn fx:id="colNombre" prefWidth="97.0" text="Nombre" />
+            <TableColumn fx:id="colDescripcion" prefWidth="166.5" text="Descripción" />
+            <TableColumn fx:id="colPrecio" prefWidth="65.16668701171875" text="Precio" />
+            <TableColumn fx:id="colStock" prefWidth="65.16665649414062" text="Stock" />
+            <TableColumn fx:id="colCategoria" prefWidth="111.66665649414062" text="Categoría" />
+            <TableColumn fx:id="colMarca" prefWidth="104.5" text="Marca" />
+            <TableColumn fx:id="colFechaCreacion" prefWidth="148.66668701171875" text="Fecha de Creación" />
         </columns>
       </TableView>
       <GridPane layoutX="81.0" layoutY="488.0" prefHeight="172.0" prefWidth="835.0">
@@ -82,7 +82,7 @@
                   <Font size="28.0" />
                </font>
             </Label>
-            <Button layoutX="845.0" layoutY="23.0" mnemonicParsing="false" prefHeight="49.0" prefWidth="126.0" styleClass="estiloBotonSecundario" text="Volver al Menú" />
+            <Button layoutX="845.0" layoutY="23.0" mnemonicParsing="false" onAction="#escenaMenuPrincipal" prefHeight="49.0" prefWidth="126.0" styleClass="estiloBotonSecundario" text="Volver al Menú" />
             <ImageView fitHeight="88.0" fitWidth="364.0" layoutX="14.0" layoutY="7.0" pickOnBounds="true" preserveRatio="true">
                <image>
                   <Image url="@../image/logoGuitarKinal(1).png" />

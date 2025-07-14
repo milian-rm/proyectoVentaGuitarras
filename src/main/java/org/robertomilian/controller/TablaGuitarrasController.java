@@ -52,6 +52,10 @@ public class TablaGuitarrasController implements Initializable {
     public void setPrincipal(Main principal) {
         this.principal = principal;
     }
+    
+    public void escenaMenuPrincipal() {
+        principal.inicio();
+    }
 
     @Override
     public void initialize(URL url, ResourceBundle rb) {

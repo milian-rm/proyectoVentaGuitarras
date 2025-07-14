@@ -1,7 +1,64 @@
-/*
- * Empty Stylesheet file.
- */
+.estiloBoton {
+    -fx-text-fill: rgb(48, 87, 118);
+    -fx-border-color: rgb(48, 87, 118);
+    -fx-border-radius: 8px;
+    -fx-background-radius: 8px;
+    -fx-background-color: transparent;
+    -fx-font-weight: bold;
+    -fx-padding: 5 15 5 15;
+    -fx-cursor: hand;
+    -fx-font-family: "Georgia";
+}
 
-.mainFxmlClass {
+.estiloBotonSecundario {
+    -fx-text-fill: white;
+    -fx-border-color: white;
+    -fx-border-radius: 8px;
+    -fx-background-radius: 8px;
+    -fx-background-color: transparent;
+    -fx-font-weight: bold;
+    -fx-padding: 5 15 5 15;
+    -fx-cursor: hand;
+    -fx-font-family: "Georgia";
+}
 
+.estiloBoton:hover {
+    -fx-background-color: rgba(48, 87, 118, 0.1);
+}
+
+.estiloTF {
+    -fx-border-color: rgb(255, 170, 102);
+    -fx-border-width: 2px;
+    -fx-border-radius: 6px;
+    -fx-background-radius: 6px;
+    -fx-background-color: #ffffff;
+    -fx-padding: 4px;
+    -fx-font-family: "Georgia";
+}
+
+.estiloTF:focused {
+    -fx-border-color: rgb(255, 140, 70); /* tono más fuerte al enfocar */
+    -fx-background-color: #fffaf5;
+}
+
+.estiloTexto {
+    -fx-text-fill: rgb(48, 87, 118);
+    -fx-font-family: "Georgia";
+}
+
+.fondoTitulo {
+    -fx-background-color: rgb(48, 87, 118);
+}
+
+.textoTitulo {
+    -fx-text-fill: white;   
+    -fx-font-family: "Georgia";
+}
+
+.bordeRedondeadoAzul {
+    -fx-border-color: rgb(48, 87, 118);
+    -fx-border-width: 2px;
+    -fx-border-radius: 10px;
+    -fx-background-radius: 10px; /* Para que el fondo también se curve */
+    -fx-padding: 10px; /* Opcional: separa el contenido del borde */
 }

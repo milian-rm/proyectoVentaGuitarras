@@ -32,7 +32,7 @@ public class InicioSesionController implements Initializable {
         this.principal = principal;
     }
     public void escenaMenuPrincipal() {
-        principal.inicio();
+        principal.menuPrincipal();
     }
     public void escenaRegistrarse() {
         principal.registrarse();
@@ -53,7 +53,7 @@ public class InicioSesionController implements Initializable {
             return;
         }
         if (validarCredenciales(correo, contraseña)) {
-            principal.inicio();
+            escenaMenuPrincipal();
         } else {
             mostrarAlerta("Credenciales inválidas", "Correo o contraseña incorrectos.");
         }

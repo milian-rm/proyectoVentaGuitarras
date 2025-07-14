@@ -8,26 +8,29 @@
 <?import javafx.scene.control.TableColumn?>
 <?import javafx.scene.control.TableView?>
 <?import javafx.scene.control.TextField?>
+<?import javafx.scene.image.Image?>
+<?import javafx.scene.image.ImageView?>
 <?import javafx.scene.layout.AnchorPane?>
 <?import javafx.scene.layout.ColumnConstraints?>
 <?import javafx.scene.layout.GridPane?>
 <?import javafx.scene.layout.RowConstraints?>
+<?import javafx.scene.text.Font?>
 
-<AnchorPane id="AnchorPane" prefHeight="610.0" prefWidth="985.0" styleClass="mainFxmlClass" xmlns:fx="http://javafx.com/fxml/1" xmlns="http://javafx.com/javafx/23.0.1" fx:controller="org.robertomilian.controller.TablaComprasController">
+<AnchorPane id="AnchorPane" prefHeight="705.0" prefWidth="985.0" styleClass="fondo" xmlns="http://javafx.com/javafx/23.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="org.robertomilian.controller.TablaComprasController">
     <stylesheets>
         <URL value="@tablacomprasview.css" />
     </stylesheets>
    <children>
-      <TableView layoutX="77.0" layoutY="62.0" prefHeight="286.0" prefWidth="834.0">
+      <TableView fx:id="tablaCompras" layoutX="78.0" layoutY="153.0" prefHeight="286.0" prefWidth="834.0">
          <columns>
-            <TableColumn prefWidth="118.0" text="ID Orden" />
-            <TableColumn prefWidth="126.0" text="ID Usuario" />
-            <TableColumn prefWidth="303.0" text="Fecha de la orden" />
-            <TableColumn prefWidth="169.5" text="Total de la orden" />
-            <TableColumn prefWidth="116.5" text="Estado" />
+            <TableColumn fx:id="colIdOrden" prefWidth="118.0" text="ID Orden" />
+            <TableColumn fx:id="colIdUsuario" prefWidth="126.0" text="ID Usuario" />
+            <TableColumn fx:id="colFechaOrden" prefWidth="303.0" text="Fecha de la orden" />
+            <TableColumn fx:id="colTotalOrden" prefWidth="169.5" text="Total de la orden" />
+            <TableColumn fx:id="colEstadoOrden" prefWidth="116.5" text="Estado" />
          </columns>
       </TableView>
-      <GridPane layoutX="77.0" layoutY="386.0" prefHeight="172.0" prefWidth="835.0">
+      <GridPane layoutX="78.0" layoutY="477.0" prefHeight="172.0" prefWidth="835.0">
          <columnConstraints>
             <ColumnConstraints hgrow="SOMETIMES" maxWidth="173.8333282470703" minWidth="10.0" prefWidth="104.0" />
             <ColumnConstraints hgrow="SOMETIMES" maxWidth="324.0" minWidth="10.0" prefWidth="292.0" />
@@ -41,27 +44,42 @@
             <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
          </rowConstraints>
          <children>
-            <Label prefHeight="35.0" prefWidth="150.0" text="ID de la orden" />
-            <Label prefHeight="35.0" prefWidth="150.0" text="Estado" GridPane.columnIndex="3" GridPane.rowIndex="1" />
-            <Label prefHeight="35.0" prefWidth="150.0" text="Total de la orden" GridPane.columnIndex="3" />
-            <Label prefHeight="35.0" prefWidth="150.0" text="Fecha de la orden" GridPane.rowIndex="2" />
-            <Label prefHeight="35.0" prefWidth="150.0" text="ID del Usuario" GridPane.rowIndex="1" />
-            <TextField GridPane.columnIndex="4" />
-            <TextField GridPane.columnIndex="4" GridPane.rowIndex="1" />
-            <TextField GridPane.columnIndex="1" />
-            <DatePicker prefHeight="25.0" prefWidth="296.0" GridPane.columnIndex="1" GridPane.rowIndex="2" />
-            <ComboBox prefHeight="25.0" prefWidth="294.0" GridPane.columnIndex="1" GridPane.rowIndex="1" />
+            <Label alignment="CENTER_RIGHT" contentDisplay="RIGHT" prefHeight="35.0" prefWidth="150.0" styleClass="estiloTexto" text="ID de la orden: " />
+            <Label alignment="CENTER_RIGHT" contentDisplay="RIGHT" prefHeight="35.0" prefWidth="150.0" styleClass="estiloTexto" text="Estado: " GridPane.columnIndex="3" GridPane.rowIndex="1" />
+            <Label alignment="CENTER_RIGHT" contentDisplay="RIGHT" prefHeight="35.0" prefWidth="150.0" styleClass="estiloTexto" text="Total de la orden: " GridPane.columnIndex="3" />
+            <Label alignment="CENTER_RIGHT" contentDisplay="RIGHT" prefHeight="35.0" prefWidth="150.0" styleClass="estiloTexto" text="Fecha de la orden: " GridPane.rowIndex="2" />
+            <Label alignment="CENTER_RIGHT" contentDisplay="RIGHT" prefHeight="35.0" prefWidth="150.0" styleClass="estiloTexto" text="ID del Usuario: " GridPane.rowIndex="1" />
+            <TextField styleClass="estiloTF" GridPane.columnIndex="4" />
+            <TextField styleClass="estiloTF" GridPane.columnIndex="4" GridPane.rowIndex="1" />
+            <TextField styleClass="estiloTF" GridPane.columnIndex="1" />
+            <DatePicker prefHeight="25.0" prefWidth="296.0" styleClass="estiloTF" GridPane.columnIndex="1" GridPane.rowIndex="2" />
+            <ComboBox prefHeight="25.0" prefWidth="294.0" styleClass="estiloTF" GridPane.columnIndex="1" GridPane.rowIndex="1" />
          </children>
       </GridPane>
-      <Button layoutX="37.0" layoutY="23.0" mnemonicParsing="false" text="&lt;&lt; Regresar" />
-      <Button layoutX="86.0" layoutY="354.0" mnemonicParsing="false" text="&lt;&lt;" />
-      <Button layoutX="140.0" layoutY="354.0" mnemonicParsing="false" text="&gt;&gt;" />
-      <Button layoutX="803.0" layoutY="354.0" mnemonicParsing="false" text="Editar" />
-      <Button layoutX="723.0" layoutY="354.0" mnemonicParsing="false" text="Eliminar" />
-      <Button layoutX="641.0" layoutY="354.0" mnemonicParsing="false" text="Agregar" />
-      <Button layoutX="528.0" layoutY="562.0" mnemonicParsing="false" text="Guardar" />
-      <Button layoutX="356.0" layoutY="560.0" mnemonicParsing="false" text="Cancelar" />
-      <TextField layoutX="165.0" layoutY="23.0" prefHeight="25.0" prefWidth="220.0" promptText="Buscar por ID" />
-      <Button layoutX="409.0" layoutY="24.0" mnemonicParsing="false" text="Buscar" />
+      <Button layoutX="38.0" layoutY="114.0" mnemonicParsing="false" styleClass="estiloBoton" text="&lt;&lt; Regresar" />
+      <Button layoutX="87.0" layoutY="445.0" mnemonicParsing="false" styleClass="estiloBoton" text="&lt;&lt;" />
+      <Button layoutX="141.0" layoutY="445.0" mnemonicParsing="false" styleClass="estiloBoton" text="&gt;&gt;" />
+      <Button layoutX="809.0" layoutY="445.0" mnemonicParsing="false" styleClass="estiloBoton" text="Editar" />
+      <Button layoutX="719.0" layoutY="445.0" mnemonicParsing="false" styleClass="estiloBoton" text="Eliminar" />
+      <Button layoutX="634.0" layoutY="445.0" mnemonicParsing="false" styleClass="estiloBoton" text="Agregar" />
+      <Button layoutX="529.0" layoutY="653.0" mnemonicParsing="false" styleClass="estiloBoton" text="Guardar" />
+      <Button layoutX="357.0" layoutY="651.0" mnemonicParsing="false" styleClass="estiloBoton" text="Cancelar" />
+      <TextField layoutX="166.0" layoutY="114.0" prefHeight="25.0" prefWidth="220.0" promptText="Buscar por ID" styleClass="estiloTF" />
+      <Button layoutX="410.0" layoutY="115.0" mnemonicParsing="false" styleClass="estiloBoton" text="Buscar" />
+      <AnchorPane prefHeight="70.0" prefWidth="985.0" styleClass="fondoTitulo">
+         <children>
+            <Label layoutX="426.0" layoutY="35.0" styleClass="textoTitulo" text="Compras">
+               <font>
+                  <Font size="28.0" />
+               </font>
+            </Label>
+            <Button layoutX="845.0" layoutY="23.0" mnemonicParsing="false" onAction="#escenaMenuPrincipal" prefHeight="49.0" prefWidth="126.0" styleClass="estiloBotonSecundario" text="Volver al Menú" />
+            <ImageView fitHeight="88.0" fitWidth="364.0" layoutX="14.0" layoutY="7.0" pickOnBounds="true" preserveRatio="true">
+               <image>
+                  <Image url="@../image/logoGuitarKinal(1).png" />
+               </image>
+            </ImageView>
+         </children>
+      </AnchorPane>
    </children>
 </AnchorPane>

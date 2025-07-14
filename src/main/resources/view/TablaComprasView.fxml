@@ -21,13 +21,13 @@
         <URL value="@tablacomprasview.css" />
     </stylesheets>
    <children>
-      <TableView layoutX="78.0" layoutY="153.0" prefHeight="286.0" prefWidth="834.0">
+      <TableView fx:id="tablaCompras" layoutX="78.0" layoutY="153.0" prefHeight="286.0" prefWidth="834.0">
          <columns>
-            <TableColumn prefWidth="118.0" text="ID Orden" />
-            <TableColumn prefWidth="126.0" text="ID Usuario" />
-            <TableColumn prefWidth="303.0" text="Fecha de la orden" />
-            <TableColumn prefWidth="169.5" text="Total de la orden" />
-            <TableColumn prefWidth="116.5" text="Estado" />
+            <TableColumn fx:id="colIdOrden" prefWidth="118.0" text="ID Orden" />
+            <TableColumn fx:id="colIdUsuario" prefWidth="126.0" text="ID Usuario" />
+            <TableColumn fx:id="colFechaOrden" prefWidth="303.0" text="Fecha de la orden" />
+            <TableColumn fx:id="colTotalOrden" prefWidth="169.5" text="Total de la orden" />
+            <TableColumn fx:id="colEstadoOrden" prefWidth="116.5" text="Estado" />
          </columns>
       </TableView>
       <GridPane layoutX="78.0" layoutY="477.0" prefHeight="172.0" prefWidth="835.0">
@@ -73,7 +73,7 @@
                   <Font size="28.0" />
                </font>
             </Label>
-            <Button layoutX="845.0" layoutY="23.0" mnemonicParsing="false" prefHeight="49.0" prefWidth="126.0" styleClass="estiloBotonSecundario" text="Volver al Menú" />
+            <Button layoutX="845.0" layoutY="23.0" mnemonicParsing="false" onAction="#escenaMenuPrincipal" prefHeight="49.0" prefWidth="126.0" styleClass="estiloBotonSecundario" text="Volver al Menú" />
             <ImageView fitHeight="88.0" fitWidth="364.0" layoutX="14.0" layoutY="7.0" pickOnBounds="true" preserveRatio="true">
                <image>
                   <Image url="@../image/logoGuitarKinal(1).png" />

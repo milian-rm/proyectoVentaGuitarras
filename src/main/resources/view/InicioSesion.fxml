@@ -8,6 +8,7 @@
 <?import javafx.scene.image.Image?>
 <?import javafx.scene.image.ImageView?>
 <?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.text.Font?>
 
 <AnchorPane id="AnchorPane" prefHeight="713.0" prefWidth="526.0" styleClass="mainFxmlClass" xmlns="http://javafx.com/javafx/23.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="org.robertomilian.controller.InicioSesionController">
     <stylesheets>
@@ -34,7 +35,10 @@
       </AnchorPane>
       <AnchorPane layoutX="164.0" layoutY="197.0" prefHeight="68.0" prefWidth="200.0" styleClass="fondoTitulo">
          <children>
-            <Label layoutX="59.0" layoutY="26.0" styleClass="textoTitulo" text="Inicio de Sesión" />
+            <Label layoutX="13.0" layoutY="19.0" styleClass="textoTitulo" text="Inicio de Sesión">
+               <font>
+                  <Font size="25.0" />
+               </font></Label>
          </children>
       </AnchorPane>
       <ImageView fitHeight="150.0" fitWidth="200.0" layoutX="163.0" layoutY="46.0" pickOnBounds="true" preserveRatio="true">

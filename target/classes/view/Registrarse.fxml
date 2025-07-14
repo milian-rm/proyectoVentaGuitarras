@@ -1,44 +1,53 @@
 <?xml version="1.0" encoding="UTF-8"?>
 
 <?import java.lang.String?>
-<?import java.net.URL?>
 <?import javafx.scene.control.Button?>
 <?import javafx.scene.control.DatePicker?>
 <?import javafx.scene.control.Label?>
 <?import javafx.scene.control.TextField?>
+<?import javafx.scene.image.Image?>
+<?import javafx.scene.image.ImageView?>
 <?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.text.Font?>
 
-<AnchorPane id="AnchorPane" prefHeight="600.0" prefWidth="1069.0" styleClass="mainFxmlClass" xmlns="http://javafx.com/javafx/23.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="org.robertomilian.controller.RegistrarseController">
-    <stylesheets>
-        <URL value="@/view/registrarse.css" />
-    </stylesheets>
+<AnchorPane id="AnchorPane" prefHeight="500.0" prefWidth="706.0" stylesheets="@registrarse.css" xmlns="http://javafx.com/javafx/23.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="org.robertomilian.controller.RegistrarseController">
    <children>
-      <TextField fx:id="txtNombre" layoutX="254.0" layoutY="137.0" prefHeight="38.0" prefWidth="215.0" />
-      <TextField fx:id="txtApellido" layoutX="254.0" layoutY="224.0" prefHeight="38.0" prefWidth="215.0" />
-      <Label layoutX="130.0" layoutY="144.0" styleClass="inicioSesion" text="Nombre:" />
-      <Label layoutX="132.0" layoutY="226.0" styleClass="inicioSesion" text="Apellido:" />
-      <Label layoutX="96.0" layoutY="331.0" styleClass="inicioSesion" text="Fecha de Nacimiento:" />
-      <Button fx:id="btnCrearCuenta" layoutX="398.0" layoutY="486.0" mnemonicParsing="false" onAction="#agregarUsuario" prefHeight="88.0" prefWidth="261.0" text="Crear">
-         <styleClass>
-            <String fx:value="presionar" />
-            <String fx:value="botonMenu" />
-         </styleClass>
-      </Button>
-      <Label layoutX="560.0" layoutY="151.0" styleClass="inicioSesion" text="Correo:" />
-      <Label layoutX="528.0" layoutY="326.0" styleClass="inicioSesion" text="Dirección:" />
-      <Label layoutX="535.0" layoutY="238.0" styleClass="inicioSesion" text="Teléfono:" />
-      <Label layoutX="124.0" layoutY="415.0" styleClass="inicioSesion" text="Contraseña:" />
-      <DatePicker fx:id="dpFechaRegistro" layoutX="254.0" layoutY="319.0" prefHeight="38.0" prefWidth="215.0" />
-      <TextField fx:id="txtContraseña" layoutX="253.0" layoutY="404.0" prefHeight="38.0" prefWidth="215.0" />
-      <TextField fx:id="txtEmail" layoutX="681.0" layoutY="144.0" prefHeight="38.0" prefWidth="215.0" />
-      <TextField fx:id="txtTelefono" layoutX="681.0" layoutY="232.0" prefHeight="38.0" prefWidth="215.0" />
-      <TextField fx:id="txtDireccion" layoutX="681.0" layoutY="320.0" prefHeight="38.0" prefWidth="215.0" />
-      <Button fx:id="btnInicioSesion" layoutX="637.0" layoutY="40.0" mnemonicParsing="false" onAction="#manejarBotonInicio" prefHeight="60.0" prefWidth="170.0" text="Inicio">
+      <Label layoutX="58.0" layoutY="149.0" styleClass="estiloTexto" text="Nombre:" AnchorPane.topAnchor="149.0" />
+      <Label layoutX="58.0" layoutY="236.0" styleClass="estiloTexto" text="Apellido:" AnchorPane.topAnchor="236.0" />
+      <DatePicker fx:id="dpFechaRegistro" disable="true" layoutX="473.0" layoutY="-125.0" prefHeight="38.0" prefWidth="215.0" styleClass="estiloTF" />
+      <Label layoutX="96.0" layoutY="331.0" styleClass="estiloTexto" />
+      <Button fx:id="btnCrearCuenta" layoutX="260.0" layoutY="400.0" mnemonicParsing="false" onAction="#agregarUsuario" prefHeight="72.0" prefWidth="187.0" styleClass="estiloBoton" text="Crear" />
+      <Label layoutX="419.0" layoutY="149.0" styleClass="estiloTexto" text="Correo:" AnchorPane.topAnchor="149.0" />
+      <Label layoutX="407.0" layoutY="339.0" styleClass="estiloTexto" text="Dirección:" AnchorPane.topAnchor="339.0" />
+      <Label layoutX="408.0" layoutY="236.0" styleClass="estiloTexto" text="Teléfono:" AnchorPane.topAnchor="236.0" />
+      <Label layoutX="41.0" layoutY="339.0" styleClass="estiloTexto" text="Contraseña:" AnchorPane.topAnchor="339.0" />
+      <Button fx:id="btnInicioSesion" layoutX="480.0" layoutY="33.0" mnemonicParsing="false" onAction="#manejarBotonInicio" prefHeight="60.0" prefWidth="170.0" text="Inicio">
          <styleClass>
             <String fx:value="inicioSesion" />
             <String fx:value="presionar" />
          </styleClass>
       </Button>
-      <TextField fx:id="txtIdUsuario" layoutX="227.0" layoutY="32.0" prefHeight="38.0" prefWidth="215.0" />
+      <TextField fx:id="txtIdUsuario" disable="true" layoutX="14.0" layoutY="-144.0" prefHeight="38.0" prefWidth="215.0" />
+      <TextField fx:id="txtNombre" layoutX="114.0" layoutY="137.0" prefHeight="38.0" prefWidth="215.0" styleClass="estiloTF" AnchorPane.topAnchor="137.0" />
+      <TextField fx:id="txtApellido" layoutX="115.0" layoutY="224.0" prefHeight="38.0" prefWidth="215.0" styleClass="estiloTF" AnchorPane.topAnchor="224.0" />
+      <TextField fx:id="txtContraseña" layoutX="115.0" layoutY="322.0" prefHeight="38.0" prefWidth="215.0" styleClass="estiloTF" AnchorPane.topAnchor="322.0" />
+      <TextField fx:id="txtEmail" layoutX="465.0" layoutY="136.0" prefHeight="38.0" prefWidth="215.0" styleClass="estiloTF" AnchorPane.topAnchor="137.0" />
+      <TextField fx:id="txtTelefono" layoutX="465.0" layoutY="232.0" prefHeight="38.0" prefWidth="215.0" styleClass="estiloTF" AnchorPane.topAnchor="224.0" />
+      <TextField fx:id="txtDireccion" layoutX="465.0" layoutY="320.0" prefHeight="38.0" prefWidth="215.0" styleClass="estiloTF" AnchorPane.topAnchor="322.0" />
+      <AnchorPane prefHeight="95.0" prefWidth="706.0" styleClass="fondoTitulo" stylesheets="@inicioview.css">
+         <children>
+            <Label layoutX="271.0" layoutY="35.0" styleClass="textoTitulo" text="Crear Cuenta">
+               <font>
+                  <Font size="28.0" />
+               </font>
+            </Label>
+            <Button layoutX="546.0" layoutY="23.0" mnemonicParsing="false" onAction="#escenaInicio" prefHeight="49.0" prefWidth="140.0" styleClass="estiloBotonSecundario" text="Inicio" />
+            <ImageView fitHeight="88.0" fitWidth="364.0" layoutX="14.0" layoutY="7.0" pickOnBounds="true" preserveRatio="true">
+               <image>
+                  <Image url="@../image/logoGuitarKinal(1).png" />
+               </image>
+            </ImageView>
+         </children>
+      </AnchorPane>
    </children>
 </AnchorPane>

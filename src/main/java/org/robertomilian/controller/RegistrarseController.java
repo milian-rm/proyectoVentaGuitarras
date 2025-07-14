@@ -61,16 +61,18 @@ public class RegistrarseController implements Initializable {
         return principal;
     }
     
+    public void escenaInicio() {
+        principal.inicio();
+    }
+    public void escenaInicioSesion() {
+        principal.inicioSesion();
+    }
+    
     private Usuario cargarModeloUsuario(){
 
         int idUsuario = txtIdUsuario.getText().isEmpty() ? 0 : Integer.parseInt(txtIdUsuario.getText());
         
-        LocalDateTime fechaRegistro;
-        if (dpFechaRegistro.getValue() != null) {
-            fechaRegistro = dpFechaRegistro.getValue().atStartOfDay();
-        } else {
-            fechaRegistro = null;
-        }
+       LocalDateTime fechaRegistro = LocalDateTime.now();
 
         return new Usuario(
                 idUsuario, 

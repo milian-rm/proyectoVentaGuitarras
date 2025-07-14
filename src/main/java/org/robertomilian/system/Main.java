@@ -11,7 +11,12 @@ import javafx.scene.Scene;
 import javafx.stage.Stage;
 import org.robertomilian.controller.InicioController;
 import org.robertomilian.controller.InicioSesionController;
+import org.robertomilian.controller.MenuPrincipalController;
 import org.robertomilian.controller.RegistrarseController;
+import org.robertomilian.controller.TablaComprasController;
+import org.robertomilian.controller.TablaDetalleCompraController;
+import org.robertomilian.controller.TablaGuitarrasController;
+import org.robertomilian.controller.TablaUsuariosController;
 
 /**
  *
@@ -49,15 +54,35 @@ public class Main extends Application{
     }
     
     public void inicio(){
-        InicioController ic = cambiarEscena("InicioView.fxml",950,720).getController();
+        InicioController ic = cambiarEscena("InicioView.fxml",894,555).getController();
         ic.setPrincipal(this);
     }
     public void inicioSesion(){
-        InicioSesionController isc = cambiarEscena("InicioSesion.fxml",950,720).getController();
+        InicioSesionController isc = cambiarEscena("InicioSesion.fxml",526,713).getController();
         isc.setPrincipal(this);
     }
     public void registrarse(){
-        RegistrarseController rc = cambiarEscena("Registrarse.fxml",950,720).getController();
+        RegistrarseController rc = cambiarEscena("Registrarse.fxml",706,500).getController();
         rc.setPrincipal(this);
+    }
+    public void menuPrincipal(){
+        MenuPrincipalController mpc = cambiarEscena("MenuPrincipal.fxml",600,463).getController();
+        mpc.setPrincipal(this);
+    }
+    public void compras(){
+        TablaComprasController tcc = cambiarEscena("TablaComprasView.fxml",985,705).getController();
+        tcc.setPrincipal(this);
+    }
+    public void detalleCompra(){
+        TablaDetalleCompraController tdc = cambiarEscena("TablaDetalleCompraView.fxml",985,697).getController();
+        tdc.setPrincipal(this);
+    }
+    public void guitarras(){
+        TablaGuitarrasController tgc = cambiarEscena("TablaGuitarrasView.fxml",985,705).getController();
+        tgc.setPrincipal(this);
+    }
+    public void usuarios(){
+        TablaUsuariosController tuc = cambiarEscena("TablaUsuariosView.fxml",985,705).getController();
+        tuc.setPrincipal(this);
     }
 }
