@@ -64,6 +64,13 @@ public class RegistrarseController implements Initializable {
     private Usuario cargarModeloUsuario(){
 
         int idUsuario = txtIdUsuario.getText().isEmpty() ? 0 : Integer.parseInt(txtIdUsuario.getText());
+        
+        LocalDateTime fechaRegistro;
+        if (dpFechaRegistro.getValue() != null) {
+            fechaRegistro = dpFechaRegistro.getValue().atStartOfDay();
+        } else {
+            fechaRegistro = null;
+        }
 
         return new Usuario(
                 idUsuario, 
@@ -72,7 +79,7 @@ public class RegistrarseController implements Initializable {
                 txtEmail.getText(),
                 txtTelefono.getText(), 
                 txtDireccion.getText(),
-                dpFechaRegistro.getValue(), 
+                fechaRegistro, 
                 txtContraseña.getText()
                 );
     }
@@ -88,7 +95,7 @@ public class RegistrarseController implements Initializable {
             enunciado.setString(3, modeloUsuario.getEmailUsuario());
             enunciado.setString(4, modeloUsuario.getTelefonoUsuario());
             enunciado.setString(5, modeloUsuario.getDireccionUsuario());
-            enunciado.setDate(6, Date.valueOf(modeloUsuario.getFechaRegistro()));
+            enunciado.setDate(6, Date.valueOf(modeloUsuario.getFechaRegistro().toLocalDate()));
             enunciado.setString(7, modeloUsuario.getContraseña());
             int registrosAgregados = enunciado.executeUpdate();
             if(registrosAgregados > 0){

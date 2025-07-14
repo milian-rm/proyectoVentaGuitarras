@@ -8,7 +8,7 @@
 <?import javafx.scene.control.TextField?>
 <?import javafx.scene.layout.AnchorPane?>
 
-<AnchorPane id="AnchorPane" prefHeight="600.0" prefWidth="1069.0" styleClass="mainFxmlClass" xmlns:fx="http://javafx.com/fxml/1" xmlns="http://javafx.com/javafx/23.0.1" fx:controller="org.robertomilian.controller.RegistrarseController">
+<AnchorPane id="AnchorPane" prefHeight="600.0" prefWidth="1069.0" styleClass="mainFxmlClass" xmlns="http://javafx.com/javafx/23.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="org.robertomilian.controller.RegistrarseController">
     <stylesheets>
         <URL value="@/view/registrarse.css" />
     </stylesheets>
@@ -39,5 +39,6 @@
             <String fx:value="presionar" />
          </styleClass>
       </Button>
+      <TextField fx:id="txtIdUsuario" layoutX="227.0" layoutY="32.0" prefHeight="38.0" prefWidth="215.0" />
    </children>
 </AnchorPane>
