@@ -7,6 +7,7 @@ package org.robertomilian.controller;
 import java.net.URL;
 import java.util.ResourceBundle;
 import javafx.fxml.Initializable;
+import org.robertomilian.system.Main;
 
 /**
  * FXML Controller class
@@ -14,7 +15,17 @@ import javafx.fxml.Initializable;
  * @author Roberto
  */
 public class InicioController implements Initializable {
+    
+    private Main principal;
 
+
+    public void setPrincipal(Main principal) {
+        this.principal = principal;
+    }
+    
+    public void escenaInicioSesion() {
+        principal.inicioSesion();
+    }
     /**
      * Initializes the controller class.
      */

@@ -8,26 +8,48 @@
 <?import javafx.scene.layout.AnchorPane?>
 <?import javafx.scene.text.Font?>
 
-<AnchorPane id="AnchorPane" prefHeight="610.0" prefWidth="985.0" styleClass="mainFxmlClass" xmlns="http://javafx.com/javafx/23.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="org.robertomilian.controller.InicioController">
+<AnchorPane id="AnchorPane" maxHeight="610.0" maxWidth="986.0" prefHeight="555.0" prefWidth="888.0" xmlns="http://javafx.com/javafx/23.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="org.robertomilian.controller.InicioController">
     <stylesheets>
         <URL value="@/view/inicioview.css" />
     </stylesheets>
    <children>
-      <Label layoutX="76.0" layoutY="52.0" styleClass="letrasInicio" stylesheets="@inicioview.css" text="Bienvenido al Sistema de Gestión de Ventas">
+      <ImageView fitHeight="459.0" fitWidth="588.0" layoutX="435.0" layoutY="96.0" nodeOrientation="RIGHT_TO_LEFT" pickOnBounds="true" preserveRatio="true">
+         <image>
+            <Image url="@../image/guitarraInicio.png" />
+         </image>
+      </ImageView>
+      <ImageView fitHeight="459.0" fitWidth="588.0" layoutX="1.0" layoutY="94.0" pickOnBounds="true" preserveRatio="true">
+         <image>
+            <Image url="@../image/guitarraInicio.png" />
+         </image>
+      </ImageView>
+      <Label layoutX="56.0" layoutY="116.0" styleClass="estiloTexto" stylesheets="@inicioview.css" text="Bienvenido al Sistema de Gestión de Ventas">
          <font>
             <Font size="29.0" />
          </font></Label>
-      <ImageView fitHeight="459.0" fitWidth="588.0" layoutX="49.0" layoutY="94.0" pickOnBounds="true" preserveRatio="true">
-         <image>
-            <Image url="@../image/guitarraInicio.png" />
-         </image>
-      </ImageView>
-      <ImageView fitHeight="459.0" fitWidth="588.0" layoutX="483.0" layoutY="96.0" nodeOrientation="RIGHT_TO_LEFT" pickOnBounds="true" preserveRatio="true">
-         <image>
-            <Image url="@../image/guitarraInicio.png" />
-         </image>
-      </ImageView>
-      <Button layoutX="450.0" layoutY="305.0" mnemonicParsing="false" prefHeight="46.0" prefWidth="86.0" text="Iniciar Sesión" />
-      <Button layoutX="435.0" layoutY="397.0" mnemonicParsing="false" prefHeight="64.0" prefWidth="115.0" text="Ver Productos" />
+      <Button layoutX="378.0" layoutY="413.0" mnemonicParsing="false" onAction="#escenaInicioSesion" prefHeight="74.0" prefWidth="142.0" styleClass="estiloBoton" stylesheets="@inicioview.css" text="Iniciar Sesion" textAlignment="CENTER" wrapText="true">
+         <font>
+            <Font size="20.0" />
+         </font></Button>
+      <AnchorPane prefHeight="95.0" prefWidth="894.0" styleClass="fondoTitulo" stylesheets="@inicioview.css">
+         <children>
+            <Label layoutX="411.0" layoutY="32.0" styleClass="textoTitulo" text="Inicio">
+               <font>
+                  <Font size="28.0" />
+               </font>
+            </Label>
+            <Button layoutX="745.0" layoutY="27.0" mnemonicParsing="false" prefHeight="49.0" prefWidth="126.0" styleClass="estiloBotonSecundario" text="Acerca De" />
+            <ImageView fitHeight="88.0" fitWidth="364.0" layoutX="14.0" layoutY="7.0" pickOnBounds="true" preserveRatio="true">
+               <image>
+                  <Image url="@../image/logoGuitarKinal(1).png" />
+               </image>
+            </ImageView>
+         </children>
+      </AnchorPane>
+      <Label layoutX="231.0" layoutY="324.0" prefHeight="61.0" prefWidth="435.0" styleClass="estiloTexto" stylesheets="@inicioview.css" text="Para continuar, es necesario iniciar sesión." textAlignment="CENTER" wrapText="true">
+         <font>
+            <Font size="23.0" />
+         </font>
+      </Label>
    </children>
 </AnchorPane>
