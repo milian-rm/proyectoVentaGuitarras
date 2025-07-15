@@ -57,7 +57,7 @@ public class TablaUsuariosController implements Initializable {
     }
     
     public void escenaMenuPrincipal() {
-        principal.inicio();
+       principal.menuPrincipal();
     }
 
     @Override
@@ -81,7 +81,7 @@ public class TablaUsuariosController implements Initializable {
         colTelefonoUsuario.setCellValueFactory(new PropertyValueFactory<>("telefonoUsuario"));
         colDireccionUsuario.setCellValueFactory(new PropertyValueFactory<>("direccionUsuario"));
         colFechaRegistro.setCellValueFactory(new PropertyValueFactory<>("fechaRegistro"));
-        colContrasena.setCellValueFactory(new PropertyValueFactory<>("contraseña"));
+        colContrasena.setCellValueFactory(new PropertyValueFactory<>("contrasena"));
     }
 
     private void cargarUsuarios() {
@@ -136,7 +136,7 @@ public class TablaUsuariosController implements Initializable {
             } else {
                 dpFechaRegistro.setValue(null);
             }
-            txtContrasena.setText(u.getContraseña());
+            txtContrasena.setText(u.getContrasena());
         } else {
             limpiarCampos();
         }
@@ -249,7 +249,7 @@ public class TablaUsuariosController implements Initializable {
                 cs.setString(4, usuario.getTelefonoUsuario());
                 cs.setString(5, usuario.getDireccionUsuario());
                 cs.setTimestamp(6, (usuario.getFechaRegistro() != null) ? Timestamp.valueOf(usuario.getFechaRegistro()) : null);
-                cs.setString(7, usuario.getContraseña());
+                cs.setString(7, usuario.getContrasena());
                 cs.execute();
                 System.out.println("Usuario agregado con éxito.");
             } else if (tipoOperacion == Operacion.EDITAR) {
@@ -262,7 +262,7 @@ public class TablaUsuariosController implements Initializable {
                 cs.setString(5, usuario.getTelefonoUsuario());
                 cs.setString(6, usuario.getDireccionUsuario());
                 cs.setTimestamp(7, (usuario.getFechaRegistro() != null) ? Timestamp.valueOf(usuario.getFechaRegistro()) : null);
-                cs.setString(8, usuario.getContraseña());
+                cs.setString(8, usuario.getContrasena());
                 cs.execute();
                 System.out.println("Usuario editado con éxito.");
             }

@@ -55,26 +55,25 @@
             <Label prefHeight="35.0" prefWidth="150.0" text="Precio" GridPane.rowIndex="3" />
             <Label prefHeight="35.0" prefWidth="150.0" text="Descripción" GridPane.rowIndex="2" />
             <Label prefHeight="35.0" prefWidth="150.0" text="Nombre" GridPane.rowIndex="1" />
-            <TextField styleClass="estiloTF" GridPane.columnIndex="1" GridPane.rowIndex="1" />
-            <TextField styleClass="estiloTF" GridPane.columnIndex="1" GridPane.rowIndex="2" />
-            <TextField styleClass="estiloTF" GridPane.columnIndex="4" />
-            <TextField styleClass="estiloTF" GridPane.columnIndex="1" GridPane.rowIndex="3" />
-            <TextField styleClass="estiloTF" GridPane.columnIndex="4" GridPane.rowIndex="2" />
-            <TextField styleClass="estiloTF" GridPane.columnIndex="4" GridPane.rowIndex="1" />
-            <DatePicker styleClass="estiloTF" GridPane.columnIndex="4" GridPane.rowIndex="3" />
-            <TextField styleClass="estiloTF" GridPane.columnIndex="1" />
+            <TextField fx:id="txtNombre" styleClass="estiloTF" GridPane.columnIndex="1" GridPane.rowIndex="1" />
+            <TextField fx:id="txtDescripcion" styleClass="estiloTF" GridPane.columnIndex="1" GridPane.rowIndex="2" />
+            <TextField fx:id="txtStock" styleClass="estiloTF" GridPane.columnIndex="4" />
+            <TextField fx:id="txtPrecio" styleClass="estiloTF" GridPane.columnIndex="1" GridPane.rowIndex="3" />
+            <TextField fx:id="txtMarca" styleClass="estiloTF" GridPane.columnIndex="4" GridPane.rowIndex="2" />
+            <TextField fx:id="txtCategoria" styleClass="estiloTF" GridPane.columnIndex="4" GridPane.rowIndex="1" />
+            <DatePicker fx:id="dpFechaCreacion" styleClass="estiloTF" GridPane.columnIndex="4" GridPane.rowIndex="3" />
+            <TextField fx:id="txtId" styleClass="estiloTF" GridPane.columnIndex="1" />
          </children>
       </GridPane>
-      <Button layoutX="41.0" layoutY="125.0" mnemonicParsing="false" styleClass="estiloBoton" text="&lt;&lt; Regresar" />
-      <Button layoutX="90.0" layoutY="456.0" mnemonicParsing="false" styleClass="estiloBoton" text="&lt;&lt;" />
-      <Button layoutX="144.0" layoutY="456.0" mnemonicParsing="false" styleClass="estiloBoton" text="&gt;&gt;" />
-      <Button layoutX="812.0" layoutY="456.0" mnemonicParsing="false" styleClass="estiloBoton" text="Editar" />
-      <Button layoutX="723.0" layoutY="456.0" mnemonicParsing="false" styleClass="estiloBoton" text="Eliminar" />
-      <Button layoutX="639.0" layoutY="456.0" mnemonicParsing="false" styleClass="estiloBoton" text="Agregar" />
-      <Button layoutX="532.0" layoutY="664.0" mnemonicParsing="false" styleClass="estiloBoton" text="Guardar" />
-      <Button layoutX="360.0" layoutY="662.0" mnemonicParsing="false" styleClass="estiloBoton" text="Cancelar" />
-      <TextField layoutX="169.0" layoutY="125.0" prefHeight="25.0" prefWidth="220.0" promptText="Buscar por nombre" styleClass="estiloTF" />
-      <Button layoutX="413.0" layoutY="126.0" mnemonicParsing="false" styleClass="estiloBoton" text="Buscar" />
+      <Button fx:id="btnAnterior" layoutX="90.0" layoutY="456.0" mnemonicParsing="false" onAction="#clicAnterior" styleClass="estiloBoton" text="&lt;&lt;" />
+      <Button fx:id="btnSiguiente" layoutX="144.0" layoutY="456.0" mnemonicParsing="false" onAction="#clicSiguiente" styleClass="estiloBoton" text="&gt;&gt;" />
+      <Button fx:id="btnEditar" layoutX="812.0" layoutY="456.0" mnemonicParsing="false" onAction="#clicEditar" styleClass="estiloBoton" text="Editar" />
+      <Button fx:id="btnEliminar" layoutX="723.0" layoutY="456.0" mnemonicParsing="false" onAction="#clicEliminar" styleClass="estiloBoton" text="Eliminar" />
+      <Button fx:id="btnNuevo" layoutX="639.0" layoutY="456.0" mnemonicParsing="false" onAction="#clicNuevo" styleClass="estiloBoton" text="Agregar" />
+      <Button fx:id="btnGuardar" layoutX="532.0" layoutY="664.0" mnemonicParsing="false" onAction="#clicGuardar" styleClass="estiloBoton" text="Guardar" />
+      <Button fx:id="btnCancelar" layoutX="360.0" layoutY="662.0" mnemonicParsing="false" onAction="#clicCancelar" styleClass="estiloBoton" text="Cancelar" />
+      <TextField fx:id="txtBuscar" layoutX="72.0" layoutY="126.0" onAction="#buscarProducto" prefHeight="27.0" prefWidth="294.0" promptText="Buscar por nombre" styleClass="estiloTF" />
+      <Button layoutX="404.0" layoutY="126.0" mnemonicParsing="false" onAction="#buscarProducto" styleClass="estiloBoton" text="Buscar" />
       <AnchorPane prefHeight="70.0" prefWidth="985.0" styleClass="fondoTitulo">
          <children>
             <Label layoutX="426.0" layoutY="35.0" styleClass="textoTitulo" text="Guitarras">

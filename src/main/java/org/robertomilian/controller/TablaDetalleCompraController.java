@@ -54,8 +54,7 @@ public class TablaDetalleCompraController implements Initializable {
     }
     
     public void escenaMenuPrincipal() {
-        principal.inicio();
-    }
+            principal.menuPrincipal();    }
 
     @Override
     public void initialize(URL url, ResourceBundle rb) {

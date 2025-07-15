@@ -16,14 +16,14 @@ public class Usuario {
     private String telefonoUsuario;
     private String direccionUsuario;
     private LocalDateTime fechaRegistro;
-    private String contraseña;
+    private String contrasena;
 
     public Usuario() {
     }
 
     public Usuario(int idUsuario, String nombreUsuario, String apellidoUsuario,
                     String emailUsuario, String telefonoUsuario, String direccionUsuario,
-                    LocalDateTime fechaRegistro, String contraseña) {
+                    LocalDateTime fechaRegistro, String contrasena) {
         this.idUsuario = idUsuario;
         this.nombreUsuario = nombreUsuario;
         this.apellidoUsuario = apellidoUsuario;
@@ -31,7 +31,7 @@ public class Usuario {
         this.telefonoUsuario = telefonoUsuario;
         this.direccionUsuario = direccionUsuario;
         this.fechaRegistro = fechaRegistro;
-        this.contraseña = contraseña;
+        this.contrasena = contrasena;
     }
 
     public int getIdUsuario() {
@@ -90,12 +90,12 @@ public class Usuario {
         this.fechaRegistro = fechaRegistro;
     }
 
-    public String getContraseña() {
-        return contraseña;
+    public String getContrasena() {
+        return contrasena;
     }
 
-    public void setContraseña(String contrasena) {
-        this.contraseña = contraseña;
+    public void setContrasena(String contrasena) {
+        this.contrasena = contrasena;
     }
 
     @Override

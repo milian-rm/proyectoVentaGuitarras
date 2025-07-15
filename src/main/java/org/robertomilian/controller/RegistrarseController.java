@@ -98,7 +98,7 @@ public class RegistrarseController implements Initializable {
             enunciado.setString(4, modeloUsuario.getTelefonoUsuario());
             enunciado.setString(5, modeloUsuario.getDireccionUsuario());
             enunciado.setDate(6, Date.valueOf(modeloUsuario.getFechaRegistro().toLocalDate()));
-            enunciado.setString(7, modeloUsuario.getContraseña());
+            enunciado.setString(7, modeloUsuario.getContrasena());
             int registrosAgregados = enunciado.executeUpdate();
             if(registrosAgregados > 0){
                 System.out.println("Usuario agregado");

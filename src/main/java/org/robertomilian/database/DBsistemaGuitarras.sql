@@ -12,7 +12,7 @@ Create table Usuarios(
     telefonoUsuario varchar(20),
     direccionUsuario varchar(255),
     fechaRegistro datetime not null,
-    contraseña varchar(255) not null,
+    contrasena varchar(255) not null,
     constraint pk_usuarios primary key (idUsuario)
 );
 
@@ -74,7 +74,7 @@ create procedure sp_agregarUsuario(
     in p_fechaRegistro datetime,
     in p_contrasena varchar(255))
 begin
-    insert into Usuarios(nombreUsuario, apellidoUsuario, emailUsuario, telefonoUsuario, direccionUsuario, fechaRegistro, contraseña)
+    insert into Usuarios(nombreUsuario, apellidoUsuario, emailUsuario, telefonoUsuario, direccionUsuario, fechaRegistro, contrasena)
     values(p_nombre, p_apellido, p_email, p_telefono, p_direccion, p_fechaRegistro, p_contrasena);
 end $$
 
@@ -107,7 +107,8 @@ begin
         U.emailUsuario as EMAIL,
         U.telefonoUsuario as TELEFONO,
         U.direccionUsuario as DIRECCION,
-        U.fechaRegistro as FECHA_REGISTRO
+        U.fechaRegistro as FECHA_REGISTRO,
+		U.contrasena AS CONTRASENA
     from Usuarios U;
 end $$
 
@@ -138,7 +139,7 @@ begin
         U.telefonoUsuario = p_telefono,
         U.direccionUsuario = p_direccion,
         U.fechaRegistro = p_fechaRegistro,
-        U.contraseña = p_contrasena
+        U.contrasena = p_contrasena
     where U.idUsuario = p_idUsuario;
 end $$
 
@@ -171,7 +172,7 @@ begin
         U.telefonoUsuario as TELEFONO,
         U.direccionUsuario as DIRECCION,
         U.fechaRegistro as FECHA_REGISTRO,
-        U.contraseña as CONTRASENA
+        U.contrasena as CONTRASENA
     from Usuarios U
     where U.idUsuario = p_idUsuario;
 end $$
@@ -456,7 +457,8 @@ begin
     select
         DC.idDetalleOrden as ID_DETALLE,
         DC.idOrden as ID_ORDEN,
-        P.nombreProducto as PRODUCTO,
+        DC.idProducto as ID_PRODUCTO, 
+        P.nombreProducto as NOMBRE_PRODUCTO, 
         DC.cantidad as CANTIDAD,
         DC.precioUnitario as PRECIO_UNITARIO,
         (DC.cantidad * DC.precioUnitario) as SUBTOTAL
@@ -521,6 +523,17 @@ begin
 end $$
 
 DELIMITER ;
+
+delimiter //
+
+	create procedure sp_ValidarUsuario(
+		in p_correo varchar(100),
+		in p_contrasena varchar(100))
+		begin
+			select * from Usuarios U
+			where U.emailUsuario = p_correo and U.contrasena = p_contrasena;
+		end //
+delimiter ;
 
 
 -- finnn
