@@ -34,9 +34,9 @@
          <columnConstraints>
             <ColumnConstraints hgrow="SOMETIMES" maxWidth="173.8333282470703" minWidth="10.0" prefWidth="104.0" />
             <ColumnConstraints hgrow="SOMETIMES" maxWidth="324.0" minWidth="10.0" prefWidth="292.0" />
-            <ColumnConstraints hgrow="SOMETIMES" maxWidth="113.0" minWidth="10.0" prefWidth="80.0" />
-            <ColumnConstraints hgrow="SOMETIMES" maxWidth="155.0" minWidth="10.0" prefWidth="106.66668701171875" />
-            <ColumnConstraints hgrow="SOMETIMES" maxWidth="255.0" minWidth="10.0" prefWidth="249.0" />
+            <ColumnConstraints hgrow="SOMETIMES" maxWidth="113.0" minWidth="10.0" prefWidth="37.0" />
+            <ColumnConstraints hgrow="SOMETIMES" maxWidth="155.0" minWidth="10.0" prefWidth="99.0" />
+            <ColumnConstraints hgrow="SOMETIMES" maxWidth="361.0" minWidth="10.0" prefWidth="301.0" />
          </columnConstraints>
          <rowConstraints>
             <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
@@ -49,23 +49,22 @@
             <Label alignment="CENTER_RIGHT" contentDisplay="RIGHT" prefHeight="35.0" prefWidth="150.0" styleClass="estiloTexto" text="Total de la orden: " GridPane.columnIndex="3" />
             <Label alignment="CENTER_RIGHT" contentDisplay="RIGHT" prefHeight="35.0" prefWidth="150.0" styleClass="estiloTexto" text="Fecha de la orden: " GridPane.rowIndex="2" />
             <Label alignment="CENTER_RIGHT" contentDisplay="RIGHT" prefHeight="35.0" prefWidth="150.0" styleClass="estiloTexto" text="ID del Usuario: " GridPane.rowIndex="1" />
-            <TextField styleClass="estiloTF" GridPane.columnIndex="4" />
-            <TextField styleClass="estiloTF" GridPane.columnIndex="4" GridPane.rowIndex="1" />
-            <TextField styleClass="estiloTF" GridPane.columnIndex="1" />
-            <DatePicker prefHeight="25.0" prefWidth="296.0" styleClass="estiloTF" GridPane.columnIndex="1" GridPane.rowIndex="2" />
-            <ComboBox prefHeight="25.0" prefWidth="294.0" styleClass="estiloTF" GridPane.columnIndex="1" GridPane.rowIndex="1" />
+            <TextField fx:id="txtTotalOrden" prefHeight="27.0" prefWidth="240.0" styleClass="estiloTF" GridPane.columnIndex="4" />
+            <TextField fx:id="txtEstadoOrden" styleClass="estiloTF" GridPane.columnIndex="4" GridPane.rowIndex="1" />
+            <TextField fx:id="txtIdOrden" styleClass="estiloTF" GridPane.columnIndex="1" />
+            <DatePicker fx:id="dpFechaOrden" prefHeight="25.0" prefWidth="296.0" styleClass="estiloTF" GridPane.columnIndex="1" GridPane.rowIndex="2" />
+            <ComboBox fx:id="cbxUsuarios" prefHeight="25.0" prefWidth="294.0" styleClass="estiloTF" GridPane.columnIndex="1" GridPane.rowIndex="1" />
          </children>
       </GridPane>
-      <Button layoutX="38.0" layoutY="114.0" mnemonicParsing="false" styleClass="estiloBoton" text="&lt;&lt; Regresar" />
-      <Button layoutX="87.0" layoutY="445.0" mnemonicParsing="false" styleClass="estiloBoton" text="&lt;&lt;" />
-      <Button layoutX="141.0" layoutY="445.0" mnemonicParsing="false" styleClass="estiloBoton" text="&gt;&gt;" />
-      <Button layoutX="809.0" layoutY="445.0" mnemonicParsing="false" styleClass="estiloBoton" text="Editar" />
-      <Button layoutX="719.0" layoutY="445.0" mnemonicParsing="false" styleClass="estiloBoton" text="Eliminar" />
-      <Button layoutX="634.0" layoutY="445.0" mnemonicParsing="false" styleClass="estiloBoton" text="Agregar" />
-      <Button layoutX="529.0" layoutY="653.0" mnemonicParsing="false" styleClass="estiloBoton" text="Guardar" />
-      <Button layoutX="357.0" layoutY="651.0" mnemonicParsing="false" styleClass="estiloBoton" text="Cancelar" />
-      <TextField layoutX="166.0" layoutY="114.0" prefHeight="25.0" prefWidth="220.0" promptText="Buscar por ID" styleClass="estiloTF" />
-      <Button layoutX="410.0" layoutY="115.0" mnemonicParsing="false" styleClass="estiloBoton" text="Buscar" />
+      <Button fx:id="btnAnterior" layoutX="87.0" layoutY="445.0" mnemonicParsing="false" onAction="#clicAnterior" styleClass="estiloBoton" text="&lt;&lt;" />
+      <Button fx:id="btnSiguiente" layoutX="141.0" layoutY="445.0" mnemonicParsing="false" onAction="#clicSiguiente" styleClass="estiloBoton" text="&gt;&gt;" />
+      <Button fx:id="btnEditar" layoutX="809.0" layoutY="445.0" mnemonicParsing="false" onAction="#clicEditar" styleClass="estiloBoton" text="Editar" />
+      <Button fx:id="btnEliminar" layoutX="719.0" layoutY="445.0" mnemonicParsing="false" onAction="#clicEliminar" styleClass="estiloBoton" text="Eliminar" />
+      <Button fx:id="btnNuevo" layoutX="634.0" layoutY="445.0" mnemonicParsing="false" onAction="#clicNuevo" styleClass="estiloBoton" text="Agregar" />
+      <Button fx:id="btnGuardar" layoutX="529.0" layoutY="653.0" mnemonicParsing="false" onAction="#clicGuardar" styleClass="estiloBoton" text="Guardar" />
+      <Button fx:id="btnCancelar" layoutX="357.0" layoutY="651.0" mnemonicParsing="false" onAction="#clicCancelar" styleClass="estiloBoton" text="Cancelar" />
+      <TextField fx:id="txtBuscar" layoutX="78.0" layoutY="115.0" onAction="#buscarCompra" prefHeight="27.0" prefWidth="293.0" promptText="Buscar por ID" styleClass="estiloTF" />
+      <Button layoutX="401.0" layoutY="115.0" mnemonicParsing="false" onAction="#buscarCompra" styleClass="estiloBoton" text="Buscar" />
       <AnchorPane prefHeight="70.0" prefWidth="985.0" styleClass="fondoTitulo">
          <children>
             <Label layoutX="426.0" layoutY="35.0" styleClass="textoTitulo" text="Compras">
