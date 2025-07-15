@@ -20,75 +20,75 @@
     <stylesheets>
         <URL value="@tablausuariosview.css" />
     </stylesheets>
-   <children>
-      <TableView fx:id="tablaUsuarios" layoutX="86.0" layoutY="164.0" prefHeight="286.0" prefWidth="834.0">
-         <columns>
-            <TableColumn fx:id="colIdUsuario" prefWidth="50.0" text="ID" />
-            <TableColumn fx:id="colNombreUsuario" prefWidth="101.5" text="Nombre" />
-            <TableColumn fx:id="colApellidoUsuario" prefWidth="95.0" text="Apellido" />
-            <TableColumn fx:id="colEmailUsuario" prefWidth="127.0" text="Email" />
-            <TableColumn fx:id="colTelefonoUsuario" prefWidth="97.0" text="Teléfono" />
-            <TableColumn fx:id="colDireccionUsuario" prefWidth="111.0" text="Dirección" />
-            <TableColumn fx:id="colContrasena" prefWidth="104.5" text="Contraseña" />
-            <TableColumn fx:id="colFechaRegistro" prefWidth="148.66668701171875" text="Fecha de Registro" />
-         </columns>
-      </TableView>
-      <GridPane layoutX="86.0" layoutY="488.0" prefHeight="172.0" prefWidth="835.0">
-         <columnConstraints>
-            <ColumnConstraints hgrow="SOMETIMES" maxWidth="173.8333282470703" minWidth="10.0" prefWidth="57.83332824707031" />
-            <ColumnConstraints hgrow="SOMETIMES" maxWidth="293.1666717529297" minWidth="10.0" prefWidth="293.1666717529297" />
-            <ColumnConstraints hgrow="SOMETIMES" maxWidth="113.0" minWidth="10.0" prefWidth="104.33331298828125" />
-            <ColumnConstraints hgrow="SOMETIMES" maxWidth="155.0" minWidth="10.0" prefWidth="106.66668701171875" />
-            <ColumnConstraints hgrow="SOMETIMES" maxWidth="255.0" minWidth="10.0" prefWidth="249.0" />
-         </columnConstraints>
-         <rowConstraints>
-            <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
-            <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
-            <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
-            <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
-         </rowConstraints>
-         <children>
-            <Label prefHeight="35.0" prefWidth="150.0" text="ID" />
-            <Label prefHeight="35.0" prefWidth="150.0" text="Fecha de Registro" GridPane.columnIndex="3" GridPane.rowIndex="3" />
-            <Label prefHeight="35.0" prefWidth="150.0" text="Contraseña" GridPane.columnIndex="3" GridPane.rowIndex="2" />
-            <Label prefHeight="35.0" prefWidth="150.0" text="Dirección" GridPane.columnIndex="3" GridPane.rowIndex="1" />
-            <Label prefHeight="35.0" prefWidth="150.0" text="Teléfono" GridPane.columnIndex="3" />
-            <Label prefHeight="35.0" prefWidth="150.0" text="Email" GridPane.rowIndex="3" />
-            <Label prefHeight="35.0" prefWidth="150.0" text="Apellido" GridPane.rowIndex="2" />
-            <Label prefHeight="35.0" prefWidth="150.0" text="Nombre" GridPane.rowIndex="1" />
-            <TextField fx:id="txtNombreUsuario" styleClass="estiloTF" GridPane.columnIndex="1" GridPane.rowIndex="1" />
-            <TextField fx:id="txtApellidoUsuario" styleClass="estiloTF" GridPane.columnIndex="1" GridPane.rowIndex="2" />
-            <TextField fx:id="txtTelefonoUsuario" styleClass="estiloTF" GridPane.columnIndex="4" />
-            <TextField fx:id="txtEmailUsuario" styleClass="estiloTF" GridPane.columnIndex="1" GridPane.rowIndex="3" />
-            <TextField fx:id="txtDireccionUsuario" styleClass="estiloTF" GridPane.columnIndex="4" GridPane.rowIndex="1" />
-            <DatePicker fx:id="dpFechaRegistro" styleClass="estiloTF" GridPane.columnIndex="4" GridPane.rowIndex="3" />
-            <TextField fx:id="txtIdUsuario" styleClass="estiloTF" GridPane.columnIndex="1" />
-            <PasswordField fx:id="txtContrasena" styleClass="estiloTF" GridPane.columnIndex="4" GridPane.rowIndex="2" />
-         </children>
-      </GridPane>
-      <Button fx:id="btnAnterior" layoutX="95.0" layoutY="456.0" mnemonicParsing="false" onAction="#clicAnterior" styleClass="estiloBoton" text="&lt;&lt;" />
-      <Button fx:id="btnSiguiente" layoutX="149.0" layoutY="456.0" mnemonicParsing="false" onAction="#clicSiguiente" styleClass="estiloBoton" text="&gt;&gt;" />
-      <Button fx:id="btnEditar" layoutX="816.0" layoutY="456.0" mnemonicParsing="false" onAction="#clicEditar" styleClass="estiloBoton" text="Editar" />
-      <Button fx:id="btnEliminar" layoutX="727.0" layoutY="456.0" mnemonicParsing="false" onAction="#clicEliminar" styleClass="estiloBoton" text="Eliminar" />
-      <Button fx:id="btnNuevo" layoutX="644.0" layoutY="456.0" mnemonicParsing="false" onAction="#clicNuevo" styleClass="estiloBoton" text="Agregar" />
-      <Button fx:id="btnGuardar" layoutX="537.0" layoutY="664.0" mnemonicParsing="false" onAction="#clicGuardar" styleClass="estiloBoton" text="Guardar" />
-      <Button fx:id="btnCancelar" layoutX="365.0" layoutY="662.0" mnemonicParsing="false" onAction="#clicCancelar" styleClass="estiloBoton" text="Cancelar" />
-      <TextField fx:id="txtBuscar" layoutX="86.0" layoutY="126.0" onAction="#buscarUsuario" prefHeight="27.0" prefWidth="294.0" promptText="Buscar por nombre" styleClass="estiloTF" />
-      <Button layoutX="409.0" layoutY="126.0" mnemonicParsing="false" onAction="#buscarUsuario" styleClass="estiloBoton" text="Buscar" />
-      <AnchorPane prefHeight="70.0" prefWidth="985.0" styleClass="fondoTitulo">
-         <children>
-            <Label layoutX="426.0" layoutY="35.0" styleClass="textoTitulo" text="Usuarios">
-               <font>
-                  <Font size="28.0" />
-               </font>
-            </Label>
-            <Button layoutX="845.0" layoutY="23.0" mnemonicParsing="false" onAction="#escenaMenuPrincipal" prefHeight="49.0" prefWidth="126.0" styleClass="estiloBotonSecundario" text="Volver al Menú" />
-            <ImageView fitHeight="88.0" fitWidth="364.0" layoutX="14.0" layoutY="7.0" pickOnBounds="true" preserveRatio="true">
-               <image>
-                  <Image url="@../image/logoGuitarKinal(1).png" />
-               </image>
-            </ImageView>
-         </children>
-      </AnchorPane>
-   </children>
+    <children>
+        <TableView fx:id="tablaUsuarios" layoutX="86.0" layoutY="164.0" prefHeight="286.0" prefWidth="834.0">
+            <columns>
+                <TableColumn fx:id="colIdUsuario" prefWidth="50.0" text="ID" />
+                <TableColumn fx:id="colNombreUsuario" prefWidth="101.5" text="Nombre" />
+                <TableColumn fx:id="colApellidoUsuario" prefWidth="95.0" text="Apellido" />
+                <TableColumn fx:id="colEmailUsuario" prefWidth="127.0" text="Email" />
+                <TableColumn fx:id="colTelefonoUsuario" prefWidth="97.0" text="Teléfono" />
+                <TableColumn fx:id="colDireccionUsuario" prefWidth="111.0" text="Dirección" />
+                <TableColumn fx:id="colContrasena" prefWidth="104.5" text="Contraseña" />
+                <TableColumn fx:id="colFechaRegistro" prefWidth="148.66668701171875" text="Fecha de Registro" />
+            </columns>
+        </TableView>
+        <GridPane layoutX="86.0" layoutY="488.0" prefHeight="172.0" prefWidth="835.0">
+            <columnConstraints>
+                <ColumnConstraints hgrow="SOMETIMES" maxWidth="173.8333282470703" minWidth="10.0" prefWidth="57.83332824707031" />
+                <ColumnConstraints hgrow="SOMETIMES" maxWidth="293.1666717529297" minWidth="10.0" prefWidth="293.1666717529297" />
+                <ColumnConstraints hgrow="SOMETIMES" maxWidth="113.0" minWidth="10.0" prefWidth="104.33331298828125" />
+                <ColumnConstraints hgrow="SOMETIMES" maxWidth="155.0" minWidth="10.0" prefWidth="106.66668701171875" />
+                <ColumnConstraints hgrow="SOMETIMES" maxWidth="255.0" minWidth="10.0" prefWidth="249.0" />
+            </columnConstraints>
+            <rowConstraints>
+                <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
+                <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
+                <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
+                <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
+            </rowConstraints>
+            <children>
+                <Label prefHeight="35.0" prefWidth="150.0" text="ID" />
+                <Label prefHeight="35.0" prefWidth="150.0" text="Fecha de Registro" GridPane.columnIndex="3" GridPane.rowIndex="3" />
+                <Label prefHeight="35.0" prefWidth="150.0" text="Contraseña" GridPane.columnIndex="3" GridPane.rowIndex="2" />
+                <Label prefHeight="35.0" prefWidth="150.0" text="Dirección" GridPane.columnIndex="3" GridPane.rowIndex="1" />
+                <Label prefHeight="35.0" prefWidth="150.0" text="Teléfono" GridPane.columnIndex="3" />
+                <Label prefHeight="35.0" prefWidth="150.0" text="Email" GridPane.rowIndex="3" />
+                <Label prefHeight="35.0" prefWidth="150.0" text="Apellido" GridPane.rowIndex="2" />
+                <Label prefHeight="35.0" prefWidth="150.0" text="Nombre" GridPane.rowIndex="1" />
+                <TextField fx:id="txtNombreUsuario" styleClass="estiloTF" GridPane.columnIndex="1" GridPane.rowIndex="1" />
+                <TextField fx:id="txtApellidoUsuario" styleClass="estiloTF" GridPane.columnIndex="1" GridPane.rowIndex="2" />
+                <TextField fx:id="txtTelefonoUsuario" styleClass="estiloTF" GridPane.columnIndex="4" />
+                <TextField fx:id="txtEmailUsuario" styleClass="estiloTF" GridPane.columnIndex="1" GridPane.rowIndex="3" />
+                <TextField fx:id="txtDireccionUsuario" styleClass="estiloTF" GridPane.columnIndex="4" GridPane.rowIndex="1" />
+                <DatePicker fx:id="dpFechaRegistro" styleClass="estiloTF" GridPane.columnIndex="4" GridPane.rowIndex="3" />
+                <TextField fx:id="txtIdUsuario" styleClass="estiloTF" GridPane.columnIndex="1" />
+                <PasswordField fx:id="txtContrasena" styleClass="estiloTF" GridPane.columnIndex="4" GridPane.rowIndex="2" />
+            </children>
+        </GridPane>
+        <Button fx:id="btnAnterior" layoutX="95.0" layoutY="456.0" mnemonicParsing="false" onAction="#clicAnterior" styleClass="estiloBoton" text="&lt;&lt;" />
+        <Button fx:id="btnSiguiente" layoutX="149.0" layoutY="456.0" mnemonicParsing="false" onAction="#clicSiguiente" styleClass="estiloBoton" text="&gt;&gt;" />
+        <Button fx:id="btnEditar" layoutX="816.0" layoutY="456.0" mnemonicParsing="false" onAction="#clicEditar" styleClass="estiloBoton" text="Editar" />
+        <Button fx:id="btnEliminar" layoutX="727.0" layoutY="456.0" mnemonicParsing="false" onAction="#clicEliminar" styleClass="estiloBoton" text="Eliminar" />
+        <Button fx:id="btnNuevo" layoutX="644.0" layoutY="456.0" mnemonicParsing="false" onAction="#clicNuevo" styleClass="estiloBoton" text="Agregar" />
+        <Button fx:id="btnGuardar" layoutX="537.0" layoutY="664.0" mnemonicParsing="false" onAction="#clicGuardar" styleClass="estiloBoton" text="Guardar" />
+        <Button fx:id="btnCancelar" layoutX="365.0" layoutY="662.0" mnemonicParsing="false" onAction="#clicCancelar" styleClass="estiloBoton" text="Cancelar" />
+        <TextField fx:id="txtBuscar" layoutX="86.0" layoutY="126.0" onAction="#buscarUsuario" prefHeight="27.0" prefWidth="294.0" promptText="Buscar por nombre" styleClass="estiloTF" />
+        <Button layoutX="409.0" layoutY="126.0" mnemonicParsing="false" onAction="#buscarUsuario" styleClass="estiloBoton" text="Buscar" />
+        <AnchorPane prefHeight="70.0" prefWidth="985.0" styleClass="fondoTitulo">
+            <children>
+                <Label layoutX="426.0" layoutY="35.0" styleClass="textoTitulo" text="Usuarios">
+                    <font>
+                        <Font size="28.0" />
+                    </font>
+                </Label>
+                <Button layoutX="845.0" layoutY="23.0" mnemonicParsing="false" onAction="#escenaMenuPrincipal" prefHeight="49.0" prefWidth="126.0" styleClass="estiloBotonSecundario" text="Volver al Menú" />
+                <ImageView fitHeight="88.0" fitWidth="364.0" layoutX="14.0" layoutY="7.0" pickOnBounds="true" preserveRatio="true">
+                    <image>
+                        <Image url="@../image/logoGuitarKinal(1).png" />
+                    </image>
+                </ImageView>
+            </children>
+        </AnchorPane>
+    </children>
 </AnchorPane>
