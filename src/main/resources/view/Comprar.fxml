@@ -1,0 +1,46 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import java.net.URL?>
+<?import javafx.scene.control.Button?>
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.control.TableColumn?>
+<?import javafx.scene.control.TableView?>
+<?import javafx.scene.control.TextField?>
+<?import javafx.scene.layout.AnchorPane?>
+
+<AnchorPane id="AnchorPane" prefHeight="848.0" prefWidth="1365.0" styleClass="mainFxmlClass" xmlns:fx="http://javafx.com/fxml/1" xmlns="http://javafx.com/javafx/23.0.1" fx:controller="org.robertomilian.controller.ComprarController">
+    <stylesheets>
+        <URL value="@/styles/comprar.css" />
+    </stylesheets>
+   <children>
+      <TableView fx:id="tablaDetalleCompra" layoutX="884.0" layoutY="154.0" prefHeight="411.0" prefWidth="424.0">
+         <columns>
+            <TableColumn fx:id="colIdDetalleOrden" prefWidth="33.0" text="ID Detalle de la orden" />
+            <TableColumn fx:id="colIdOrden" prefWidth="86.0" text="ID Orden" />
+            <TableColumn fx:id="colIdProducto" prefWidth="86.0" text="ID Producto" />
+            <TableColumn fx:id="colCantidad" prefWidth="95.0" text="Cantidad" />
+            <TableColumn fx:id="colPrecioUnitario" prefWidth="123.0" text="Precio Unitario" />
+         </columns>
+      </TableView>
+      <TableView fx:id="tablaProductos" layoutX="45.0" layoutY="155.0" prefHeight="410.0" prefWidth="796.0">
+         <columns>
+            <TableColumn fx:id="colId" prefWidth="26.0" text="ID" />
+            <TableColumn fx:id="colNombre" prefWidth="90.0" text="Nombre" />
+            <TableColumn fx:id="colDescripcion" prefWidth="186.0" text="Descripción" />
+            <TableColumn fx:id="colPrecio" prefWidth="79.0" text="Precio" />
+            <TableColumn fx:id="colStock" prefWidth="70.0" text="Stock" />
+            <TableColumn fx:id="colCategoria" prefWidth="105.0" text="Categoría" />
+            <TableColumn fx:id="colMarca" prefWidth="103.0" text="Marca" />
+            <TableColumn fx:id="colFechaCreacion" prefWidth="136.0" text="Fecha de Creación" />
+         </columns>
+      </TableView>
+      <Button layoutX="808.0" layoutY="607.0" mnemonicParsing="false" text="Agregar al Carrito" />
+      <Button layoutX="805.0" layoutY="648.0" mnemonicParsing="false" text="Eliminar del Carrito" />
+      <TextField layoutX="1046.0" layoutY="607.0" prefHeight="25.0" prefWidth="34.0" />
+      <Button layoutX="1096.0" layoutY="607.0" mnemonicParsing="false" text="+" />
+      <Button layoutX="1000.0" layoutY="607.0" mnemonicParsing="false" text="-" />
+      <Button layoutX="634.0" layoutY="749.0" mnemonicParsing="false" text="Finalizar Compra" />
+      <Label layoutX="45.0" layoutY="117.0" text="Todos los Productos" />
+      <Label layoutX="884.0" layoutY="117.0" text="Carrito Actual" />
+   </children>
+</AnchorPane>
