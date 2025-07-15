@@ -57,7 +57,7 @@ public class TablaUsuariosController implements Initializable {
     }
     
     public void escenaMenuPrincipal() {
-        principal.inicio();
+       principal.menuPrincipal();
     }
 
     @Override

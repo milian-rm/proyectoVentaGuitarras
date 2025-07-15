@@ -54,7 +54,7 @@ public class TablaGuitarrasController implements Initializable {
     }
     
     public void escenaMenuPrincipal() {
-        principal.inicio();
+        principal.menuPrincipal();
     }
 
     @Override
