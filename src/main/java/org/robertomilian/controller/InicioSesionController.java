@@ -47,24 +47,24 @@ public class InicioSesionController implements Initializable {
     @FXML
     private void iniciarSesion() {
         String correo = txtCorreo.getText();
-        String contraseña = txtContraseña.getText();
-        if (correo.equals("") || contraseña.equals("")) {
+        String contrasena = txtContraseña.getText();
+        if (correo.equals("") || contrasena.equals("")) {
             mostrarAlerta("Campos vacíos", "Por favor ingresa el correo y la contraseña.");
             return;
         }
-        if (validarCredenciales(correo, contraseña)) {
+        if (validarCredenciales(correo, contrasena)) {
             escenaMenuPrincipal();
         } else {
             mostrarAlerta("Credenciales inválidas", "Correo o contraseña incorrectos.");
         }
     }
 
-    private boolean validarCredenciales(String correo, String contraseña) {
+    private boolean validarCredenciales(String correo, String contrasena) {
         try {
             Connection conexion = Conexion.getInstancia().getConexion();
             CallableStatement cs = conexion.prepareCall("call sp_ValidarUsuario(?, ?)");
             cs.setString(1, correo);
-            cs.setString(2, contraseña);
+            cs.setString(2, contrasena);
 
             ResultSet rs = cs.executeQuery();
             return rs.next(); // Si hay resultados, el usuario existe
