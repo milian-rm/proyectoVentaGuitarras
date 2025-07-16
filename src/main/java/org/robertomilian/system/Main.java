@@ -9,6 +9,7 @@ import javafx.fxml.FXMLLoader;
 import javafx.scene.Parent;
 import javafx.scene.Scene;
 import javafx.stage.Stage;
+import org.robertomilian.controller.ComprarController;
 import org.robertomilian.controller.InicioController;
 import org.robertomilian.controller.InicioSesionController;
 import org.robertomilian.controller.MenuPrincipalController;
@@ -84,5 +85,9 @@ public class Main extends Application{
     public void usuarios(){
         TablaUsuariosController tuc = cambiarEscena("TablaUsuariosView.fxml",985,705).getController();
         tuc.setPrincipal(this);
+    }
+    public void vender(){
+        ComprarController cc = cambiarEscena("Comprar.fxml",985,705).getController();
+        cc.setPrincipal(this);
     }
 }

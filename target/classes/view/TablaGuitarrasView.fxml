@@ -1,0 +1,93 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import java.net.URL?>
+<?import javafx.scene.control.Button?>
+<?import javafx.scene.control.DatePicker?>
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.control.TableColumn?>
+<?import javafx.scene.control.TableView?>
+<?import javafx.scene.control.TextField?>
+<?import javafx.scene.image.Image?>
+<?import javafx.scene.image.ImageView?>
+<?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.layout.ColumnConstraints?>
+<?import javafx.scene.layout.GridPane?>
+<?import javafx.scene.layout.RowConstraints?>
+<?import javafx.scene.text.Font?>
+
+<AnchorPane id="AnchorPane" prefHeight="705.0" prefWidth="985.0" styleClass="mainFxmlClass" xmlns="http://javafx.com/javafx/23.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="org.robertomilian.controller.TablaGuitarrasController">
+    <stylesheets>
+        <URL value="@tablaguitarrasview.css" />
+    </stylesheets>
+   <children>
+      <TableView fx:id="tablaProductos" layoutX="72.0" layoutY="164.0" prefHeight="286.0" prefWidth="834.0">
+        <columns>
+          <TableColumn fx:id="colId" prefWidth="75.0" text="ID" />
+          <TableColumn fx:id="colNombre" prefWidth="97.0" text="Nombre" />
+            <TableColumn fx:id="colDescripcion" prefWidth="166.5" text="Descripción" />
+            <TableColumn fx:id="colPrecio" prefWidth="65.16668701171875" text="Precio" />
+            <TableColumn fx:id="colStock" prefWidth="65.16665649414062" text="Stock" />
+            <TableColumn fx:id="colCategoria" prefWidth="111.66665649414062" text="Categoría" />
+            <TableColumn fx:id="colMarca" prefWidth="104.5" text="Marca" />
+            <TableColumn fx:id="colFechaCreacion" prefWidth="148.66668701171875" text="Fecha de Creación" />
+        </columns>
+      </TableView>
+      <GridPane layoutX="81.0" layoutY="488.0" prefHeight="172.0" prefWidth="835.0">
+        <columnConstraints>
+          <ColumnConstraints hgrow="SOMETIMES" maxWidth="173.8333282470703" minWidth="10.0" prefWidth="57.83332824707031" />
+            <ColumnConstraints hgrow="SOMETIMES" maxWidth="293.1666717529297" minWidth="10.0" prefWidth="293.1666717529297" />
+            <ColumnConstraints hgrow="SOMETIMES" maxWidth="113.0" minWidth="10.0" prefWidth="104.33331298828125" />
+            <ColumnConstraints hgrow="SOMETIMES" maxWidth="155.0" minWidth="10.0" prefWidth="106.66668701171875" />
+          <ColumnConstraints hgrow="SOMETIMES" maxWidth="255.0" minWidth="10.0" prefWidth="249.0" />
+        </columnConstraints>
+        <rowConstraints>
+          <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
+          <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
+            <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
+          <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
+        </rowConstraints>
+         <children>
+            <Label prefHeight="35.0" prefWidth="150.0" text="ID" />
+            <Label prefHeight="35.0" prefWidth="150.0" text="Fecha de Creación" GridPane.columnIndex="3" GridPane.rowIndex="3" />
+            <Label prefHeight="35.0" prefWidth="150.0" text="Marca" GridPane.columnIndex="3" GridPane.rowIndex="2" />
+            <Label prefHeight="35.0" prefWidth="150.0" text="Categoría" GridPane.columnIndex="3" GridPane.rowIndex="1" />
+            <Label prefHeight="35.0" prefWidth="150.0" text="Stock" GridPane.columnIndex="3" />
+            <Label prefHeight="35.0" prefWidth="150.0" text="Precio" GridPane.rowIndex="3" />
+            <Label prefHeight="35.0" prefWidth="150.0" text="Descripción" GridPane.rowIndex="2" />
+            <Label prefHeight="35.0" prefWidth="150.0" text="Nombre" GridPane.rowIndex="1" />
+            <TextField fx:id="txtNombre" styleClass="estiloTF" GridPane.columnIndex="1" GridPane.rowIndex="1" />
+            <TextField fx:id="txtDescripcion" styleClass="estiloTF" GridPane.columnIndex="1" GridPane.rowIndex="2" />
+            <TextField fx:id="txtStock" styleClass="estiloTF" GridPane.columnIndex="4" />
+            <TextField fx:id="txtPrecio" styleClass="estiloTF" GridPane.columnIndex="1" GridPane.rowIndex="3" />
+            <TextField fx:id="txtMarca" styleClass="estiloTF" GridPane.columnIndex="4" GridPane.rowIndex="2" />
+            <TextField fx:id="txtCategoria" styleClass="estiloTF" GridPane.columnIndex="4" GridPane.rowIndex="1" />
+            <DatePicker fx:id="dpFechaCreacion" styleClass="estiloTF" GridPane.columnIndex="4" GridPane.rowIndex="3" />
+            <TextField fx:id="txtId" styleClass="estiloTF" GridPane.columnIndex="1" />
+         </children>
+      </GridPane>
+      <Button fx:id="btnAnterior" layoutX="90.0" layoutY="456.0" mnemonicParsing="false" onAction="#clicAnterior" styleClass="estiloBoton" text="&lt;&lt;" />
+      <Button fx:id="btnSiguiente" layoutX="144.0" layoutY="456.0" mnemonicParsing="false" onAction="#clicSiguiente" styleClass="estiloBoton" text="&gt;&gt;" />
+      <Button fx:id="btnEditar" layoutX="812.0" layoutY="456.0" mnemonicParsing="false" onAction="#clicEditar" styleClass="estiloBoton" text="Editar" />
+      <Button fx:id="btnEliminar" layoutX="723.0" layoutY="456.0" mnemonicParsing="false" onAction="#clicEliminar" styleClass="estiloBoton" text="Eliminar" />
+      <Button fx:id="btnNuevo" layoutX="639.0" layoutY="456.0" mnemonicParsing="false" onAction="#clicNuevo" styleClass="estiloBoton" text="Agregar" />
+      <Button fx:id="btnGuardar" layoutX="532.0" layoutY="664.0" mnemonicParsing="false" onAction="#clicGuardar" styleClass="estiloBoton" text="Guardar" />
+      <Button fx:id="btnCancelar" layoutX="360.0" layoutY="662.0" mnemonicParsing="false" onAction="#clicCancelar" styleClass="estiloBoton" text="Cancelar" />
+      <TextField fx:id="txtBuscar" layoutX="72.0" layoutY="126.0" onAction="#buscarProducto" prefHeight="27.0" prefWidth="294.0" promptText="Buscar por nombre" styleClass="estiloTF" />
+      <Button layoutX="404.0" layoutY="126.0" mnemonicParsing="false" onAction="#buscarProducto" styleClass="estiloBoton" text="Buscar" />
+      <AnchorPane prefHeight="70.0" prefWidth="985.0" styleClass="fondoTitulo">
+         <children>
+            <Label layoutX="426.0" layoutY="35.0" styleClass="textoTitulo" text="Guitarras">
+               <font>
+                  <Font size="28.0" />
+               </font>
+            </Label>
+            <Button layoutX="845.0" layoutY="23.0" mnemonicParsing="false" onAction="#escenaMenuPrincipal" prefHeight="49.0" prefWidth="126.0" styleClass="estiloBotonSecundario" text="Volver al Menú" />
+            <ImageView fitHeight="88.0" fitWidth="364.0" layoutX="14.0" layoutY="7.0" pickOnBounds="true" preserveRatio="true">
+               <image>
+                  <Image url="@../image/logoGuitarKinal(1).png" />
+               </image>
+            </ImageView>
+         </children>
+      </AnchorPane>
+   </children>
+</AnchorPane>

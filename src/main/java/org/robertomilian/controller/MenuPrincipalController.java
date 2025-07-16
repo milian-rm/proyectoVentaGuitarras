@@ -38,6 +38,9 @@ public class MenuPrincipalController implements Initializable {
     public void escenaUsuarios() {
         principal.usuarios();
     }
+    public void escenaVender() {
+        principal.vender();
+    }
     
     @Override
     public void initialize(URL url, ResourceBundle rb) {

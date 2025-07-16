@@ -1,0 +1,21 @@
+/*
+ * Empty Stylesheet file.
+ */
+
+.mainFxmlClass {
+
+}
+
+.fondoTitulo {
+    -fx-background-color: rgb(48, 87, 118);
+    -fx-background-radius: 10px;
+}
+
+.textoTitulo {
+    -fx-text-fill: white;   
+    -fx-font-family: "Georgia";
+}
+.texto {
+    -fx-text-fill: rgb(48, 87, 118);   
+    -fx-font-family: "Georgia";
+}

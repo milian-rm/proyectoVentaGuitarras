@@ -33,10 +33,10 @@ import javafx.scene.control.DatePicker;
  */
 public class TablaGuitarrasController implements Initializable {
 
-    private Main principal;
+    protected Main principal;
 
-    @FXML private TableView<Producto> tablaProductos;
-    @FXML private TableColumn colId, colNombre, colDescripcion, colPrecio, colStock, colCategoria, colMarca, colFechaCreacion;
+    @FXML protected TableView<Producto> tablaProductos;
+    @FXML protected TableColumn colId, colNombre, colDescripcion, colPrecio, colStock, colCategoria, colMarca, colFechaCreacion;
 
     @FXML private TextField txtId, txtNombre, txtDescripcion, txtPrecio, txtStock, txtCategoria, txtMarca, txtBuscar;
     @FXML private DatePicker dpFechaCreacion;
@@ -44,10 +44,10 @@ public class TablaGuitarrasController implements Initializable {
     @FXML private Button btnNuevo, btnEditar, btnEliminar, btnGuardar, btnCancelar;
     @FXML private Button btnSiguiente, btnAnterior, btnMenu;
 
-    private ObservableList<Producto> listaProductos;
+    protected ObservableList<Producto> listaProductos;
 
-    private enum Operacion {NINGUNA, NUEVO, EDITAR}
-    private Operacion tipoOperacion = Operacion.NINGUNA;
+    protected enum Operacion {NINGUNA, NUEVO, EDITAR}
+    protected Operacion tipoOperacion = Operacion.NINGUNA;
 
     public void setPrincipal(Main principal) {
         this.principal = principal;
@@ -55,6 +55,11 @@ public class TablaGuitarrasController implements Initializable {
     
     public void escenaMenuPrincipal() {
         principal.menuPrincipal();
+    }
+    
+    public void inicializarProductos() {
+    configurarColumnas();
+    cargarProductosVista();
     }
 
     @Override
@@ -90,6 +95,10 @@ public class TablaGuitarrasController implements Initializable {
         } else {
             limpiarCampos();
         }
+    }
+    protected void cargarProductosVista() {
+        listaProductos = FXCollections.observableArrayList(obtenerProductos());
+        tablaProductos.setItems(listaProductos);
     }
 
     private ArrayList<Producto> obtenerProductos() {

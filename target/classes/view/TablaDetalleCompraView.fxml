@@ -1,0 +1,84 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import java.net.URL?>
+<?import javafx.scene.control.Button?>
+<?import javafx.scene.control.ComboBox?>
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.control.TableColumn?>
+<?import javafx.scene.control.TableView?>
+<?import javafx.scene.control.TextField?>
+<?import javafx.scene.image.Image?>
+<?import javafx.scene.image.ImageView?>
+<?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.layout.ColumnConstraints?>
+<?import javafx.scene.layout.GridPane?>
+<?import javafx.scene.layout.RowConstraints?>
+<?import javafx.scene.text.Font?>
+
+<AnchorPane id="AnchorPane" prefHeight="697.0" prefWidth="985.0" styleClass="mainFxmlClass" xmlns="http://javafx.com/javafx/23.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="org.robertomilian.controller.TablaDetalleCompraController">
+    <stylesheets>
+        <URL value="@tabladetallecompraview.css" />
+    </stylesheets>
+   <children>
+      <TableView fx:id="tablaDetalleCompra" layoutX="73.0" layoutY="153.0" prefHeight="286.0" prefWidth="834.0">
+         <columns>
+            <TableColumn fx:id="colIdDetalleOrden" prefWidth="166.5" text="ID Detalle de la orden" />
+            <TableColumn fx:id="colIdOrden" prefWidth="117.5" text="ID Orden" />
+            <TableColumn fx:id="colIdProducto" prefWidth="120.0" text="ID Producto" />
+            <TableColumn fx:id="colCantidad" prefWidth="246.5" text="Cantidad" />
+            <TableColumn fx:id="colPrecioUnitario" prefWidth="182.5" text="Precio Unitario" />
+         </columns>
+      </TableView>
+      <GridPane layoutX="56.0" layoutY="480.0" prefHeight="172.0" prefWidth="851.0">
+         <columnConstraints>
+            <ColumnConstraints hgrow="SOMETIMES" maxWidth="173.8333282470703" minWidth="10.0" prefWidth="119.5" />
+            <ColumnConstraints hgrow="SOMETIMES" maxWidth="324.0" minWidth="10.0" prefWidth="298.5" />
+            <ColumnConstraints hgrow="SOMETIMES" maxWidth="113.0" minWidth="10.0" prefWidth="60.0" />
+            <ColumnConstraints hgrow="SOMETIMES" maxWidth="155.0" minWidth="10.0" prefWidth="106.66668701171875" />
+            <ColumnConstraints hgrow="SOMETIMES" maxWidth="255.0" minWidth="10.0" prefWidth="249.0" />
+         </columnConstraints>
+         <rowConstraints>
+            <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
+            <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
+            <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
+         </rowConstraints>
+         <children>
+            <Label alignment="CENTER_RIGHT" prefHeight="35.0" prefWidth="150.0" styleClass="estiloTexto" text="ID Detalle de la orden: " />
+            <Label alignment="CENTER_RIGHT" prefHeight="35.0" prefWidth="150.0" styleClass="estiloTexto" text="Precio Unitario: " GridPane.columnIndex="3" GridPane.rowIndex="1" />
+            <Label alignment="CENTER_RIGHT" prefHeight="35.0" prefWidth="150.0" styleClass="estiloTexto" text="Cantidad: " GridPane.columnIndex="3" />
+            <Label alignment="CENTER_RIGHT" prefHeight="35.0" prefWidth="150.0" styleClass="estiloTexto" text="ID del producto: " GridPane.rowIndex="2" />
+            <Label alignment="CENTER_RIGHT" prefHeight="35.0" prefWidth="150.0" styleClass="estiloTexto" text="ID de la orden: " GridPane.rowIndex="1" />
+            <TextField fx:id="txtCantidad" styleClass="estiloTF" GridPane.columnIndex="4" />
+            <TextField fx:id="txtPrecioUnitario" styleClass="estiloTF" GridPane.columnIndex="4" GridPane.rowIndex="1" />
+            <TextField fx:id="txtIdDetalleOrden" styleClass="estiloTF" GridPane.columnIndex="1" />
+            <ComboBox fx:id="cbxOrdenes" prefHeight="25.0" prefWidth="294.0" styleClass="estiloTF" GridPane.columnIndex="1" GridPane.rowIndex="1" />
+            <ComboBox fx:id="cbxProductos" prefHeight="25.0" prefWidth="294.0" styleClass="estiloTF" GridPane.columnIndex="1" GridPane.rowIndex="2" />
+            <ComboBox fx:id="cbxProductos" prefWidth="150.0" styleClass="estiloTF" stylesheets="@tabladetallecompraview.css" GridPane.columnIndex="4" GridPane.halignment="CENTER" GridPane.rowIndex="2" />
+         </children>
+      </GridPane>
+      <Button fx:id="btnAnterior" layoutX="82.0" layoutY="445.0" mnemonicParsing="false" onAction="#clicAnterior" styleClass="estiloBoton" text="&lt;&lt;" />
+      <Button fx:id="btnSiguiente" layoutX="136.0" layoutY="445.0" mnemonicParsing="false" onAction="#clicSiguiente" styleClass="estiloBoton" text="&gt;&gt;" />
+      <Button fx:id="btnEditar" layoutX="800.0" layoutY="445.0" mnemonicParsing="false" onAction="#clicEditar" styleClass="estiloBoton" text="Editar" />
+      <Button fx:id="btnEliminar" layoutX="711.0" layoutY="445.0" mnemonicParsing="false" onAction="#clicEliminar" styleClass="estiloBoton" text="Eliminar" />
+      <Button fx:id="btnNuevo" layoutX="628.0" layoutY="445.0" mnemonicParsing="false" onAction="#clicNuevo" styleClass="estiloBoton" text="Agregar" />
+      <Button fx:id="btnGuardar" layoutX="523.0" layoutY="656.0" mnemonicParsing="false" onAction="#clicGuardar" styleClass="estiloBoton" text="Guardar" />
+      <Button fx:id="btnCancelar" layoutX="351.0" layoutY="654.0" mnemonicParsing="false" onAction="#clicCancelar" styleClass="estiloBoton" text="Cancelar" />
+      <TextField fx:id="txtBuscar" layoutX="73.0" layoutY="115.0" onAction="#buscarDetalleCompra" prefHeight="27.0" prefWidth="303.0" promptText="Buscar por ID" styleClass="estiloTF" />
+      <Button layoutX="395.0" layoutY="115.0" mnemonicParsing="false" onAction="#buscarDetalleCompra" styleClass="estiloBoton" text="Buscar" />
+      <AnchorPane prefHeight="70.0" prefWidth="985.0" styleClass="fondoTitulo">
+         <children>
+            <Label layoutX="396.0" layoutY="35.0" styleClass="textoTitulo" text="Detalle Compra">
+               <font>
+                  <Font size="28.0" />
+               </font>
+            </Label>
+            <Button layoutX="845.0" layoutY="23.0" mnemonicParsing="false" onAction="#escenaMenuPrincipal" prefHeight="49.0" prefWidth="126.0" styleClass="estiloBotonSecundario" text="Volver al Menú" />
+            <ImageView fitHeight="88.0" fitWidth="364.0" layoutX="14.0" layoutY="7.0" pickOnBounds="true" preserveRatio="true">
+               <image>
+                  <Image url="@../image/logoGuitarKinal(1).png" />
+               </image>
+            </ImageView>
+         </children>
+      </AnchorPane>
+   </children>
+</AnchorPane>
