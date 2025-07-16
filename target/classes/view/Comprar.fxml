@@ -8,12 +8,12 @@
 <?import javafx.scene.control.TextField?>
 <?import javafx.scene.layout.AnchorPane?>
 
-<AnchorPane id="AnchorPane" prefHeight="848.0" prefWidth="1365.0" styleClass="mainFxmlClass" xmlns="http://javafx.com/javafx/23.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="org.robertomilian.controller.ComprarController">
+<AnchorPane id="AnchorPane" prefHeight="679.0" prefWidth="1337.0" styleClass="mainFxmlClass" xmlns="http://javafx.com/javafx/21" xmlns:fx="http://javafx.com/fxml/1" fx:controller="org.robertomilian.controller.ComprarController">
     <stylesheets>
         <URL value="@/styles/comprar.css" />
     </stylesheets>
    <children>
-      <TableView fx:id="tablaDetalleTemporal" layoutX="884.0" layoutY="154.0" prefHeight="411.0" prefWidth="424.0">
+      <TableView fx:id="tablaDetalleTemporal" layoutX="871.0" layoutY="154.0" prefHeight="411.0" prefWidth="424.0">
          <columns>
             <TableColumn fx:id="colIdDetalleOrden" prefWidth="33.0" text="ID Detalle de la orden" />
             <TableColumn fx:id="colIdOrden" prefWidth="86.0" text="ID Orden" />
@@ -34,13 +34,14 @@
             <TableColumn fx:id="colFechaCreacion" prefWidth="136.0" text="Fecha de Creación" />
          </columns>
       </TableView>
-      <Button layoutX="808.0" layoutY="607.0" mnemonicParsing="false" onAction="#agregarDetalle" text="Agregar al Carrito" />
-      <Button layoutX="805.0" layoutY="648.0" mnemonicParsing="false" text="Eliminar del Carrito" />
-      <TextField fx:id="txtCantidad" layoutX="1046.0" layoutY="607.0" prefHeight="25.0" prefWidth="34.0" />
-      <Button layoutX="1096.0" layoutY="607.0" mnemonicParsing="false" text="+" />
-      <Button layoutX="1000.0" layoutY="607.0" mnemonicParsing="false" text="-" />
-      <Button layoutX="634.0" layoutY="749.0" mnemonicParsing="false" text="Finalizar Compra" />
+      <Button layoutX="98.0" layoutY="585.0" mnemonicParsing="false" onAction="#agregarDetalle" text="Agregar al Carrito" />
+      <Button layoutX="95.0" layoutY="632.0" mnemonicParsing="false" text="Eliminar del Carrito" />
+      <TextField fx:id="txtCantidad" layoutX="272.0" layoutY="608.0" prefHeight="25.0" prefWidth="34.0" />
+      <Button layoutX="316.0" layoutY="608.0" mnemonicParsing="false" text="+" />
+      <Button layoutX="243.0" layoutY="608.0" mnemonicParsing="false" text="-" />
+      <Button layoutX="1031.0" layoutY="608.0" mnemonicParsing="false" text="Finalizar Compra" />
       <Label layoutX="45.0" layoutY="117.0" text="Todos los Productos" />
-      <Label layoutX="884.0" layoutY="117.0" text="Carrito Actual" />
+      <Label layoutX="871.0" layoutY="117.0" text="Carrito Actual" />
+      <Button layoutX="1152.0" layoutY="46.0" mnemonicParsing="false" onAction="#escenaMenuPrincipal" text="Regresar" />
    </children>
 </AnchorPane>
