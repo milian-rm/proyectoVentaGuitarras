@@ -14,10 +14,14 @@ import org.robertomilian.controller.TablaComprasController;
 import org.robertomilian.controller.TablaDetalleCompraController;
 import org.robertomilian.controller.TablaGuitarrasController;
 import org.robertomilian.controller.TablaUsuariosController;
+import org.robertomilian.controller.FacturaController;
+import org.robertomilian.model.DetalleCompra;
 import java.sql.CallableStatement;
 import java.sql.Connection;
 import java.sql.SQLException;
 import org.robertomilian.database.Conexion;
+import java.math.BigDecimal;
+import javafx.collections.ObservableList;
 
 /**
  *
@@ -126,5 +130,15 @@ public class Main extends Application{
             e.printStackTrace();
         }
         return idGenerado;
+    }
+     public void mostrarVistaFactura(ObservableList<DetalleCompra> detallesCompra, BigDecimal totalFactura, int numeroOrden, String nitCliente) {
+        FXMLLoader loader = cambiarEscena("FacturaView.fxml", 800, 600);
+        FacturaController fc = loader.getController();
+        fc.setPrincipal(this);
+        fc.setDatosFactura(detallesCompra, totalFactura, numeroOrden, nitCliente);
+    }
+
+    public void mostrarVistaComprar() {
+        vender();
     }
 }

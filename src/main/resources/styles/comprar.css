@@ -1,7 +1,102 @@
-/*
- * Empty Stylesheet file.
- */
+.estiloBoton {
+    -fx-text-fill: rgb(48, 87, 118);
+    -fx-border-color: rgb(48, 87, 118);
+    -fx-border-radius: 8px;
+    -fx-background-radius: 8px;
+    -fx-background-color: transparent;
+    -fx-font-weight: bold;
+    -fx-padding: 5 15 5 15;
+    -fx-cursor: hand;
+    -fx-font-family: "Georgia";
+}
 
-.mainFxmlClass {
+.estiloBotonSecundario {
+    -fx-text-fill: white;
+    -fx-border-color: white;
+    -fx-border-radius: 8px;
+    -fx-background-radius: 8px;
+    -fx-background-color: transparent;
+    -fx-font-weight: bold;
+    -fx-padding: 5 15 5 15;
+    -fx-cursor: hand;
+    -fx-font-family: "Georgia";
+}
 
+.estiloBoton:hover {
+    -fx-background-color: rgba(48, 87, 118, 0.1);
+}
+
+.estiloTF {
+    -fx-border-color: rgb(255, 170, 102);
+    -fx-border-width: 2px;
+    -fx-border-radius: 6px;
+    -fx-background-radius: 6px;
+    -fx-background-color: #ffffff;
+    -fx-padding: 4px;
+    -fx-font-family: "Georgia";
+}
+
+.estiloTF:focused {
+    -fx-border-color: rgb(255, 140, 70); /* tono más fuerte al enfocar */
+    -fx-background-color: #fffaf5;
+}
+
+.table-view {
+    -fx-control-inner-background: #f4f4f4;
+    -fx-border-color: rgb(48, 87, 118);
+    -fx-border-width: 2px;
+    -fx-border-radius: 6px;
+    -fx-background-radius: 6px;
+    -fx-table-cell-border-color: rgb(48, 87, 118);
+    -fx-padding: 0;
+}
+
+/* Encabezado */
+.table-view .column-header-background {
+    -fx-background-color: rgb(48, 87, 118); 
+    -fx-background-insets: 0;
+    -fx-border-insets: 0;
+    -fx-padding: 0;
+    -fx-border-color: transparent;
+    -fx-border-width: 0;
+}
+
+.table-view .column-header {
+    -fx-background-color: transparent;
+    -fx-font-weight: bold;
+    -fx-padding: 6px;
+}
+
+.table-view .column-header .label {
+    -fx-text-fill: white;
+}
+
+/* Alternar filas */
+.table-row-cell:even {
+    -fx-background-color: #f4f4f4; /* mismo fondo que la escena */
+}
+
+.table-row-cell:odd {
+    -fx-background-color: #e3f2f9; /* celeste claro que combina */
+}
+
+/* Selección */
+.table-row-cell:selected {
+    -fx-background-color: rgb(255, 170, 102); /* naranja claro */
+    -fx-text-fill: black;
+}
+
+
+.estiloTexto {
+    -fx-text-fill: rgb(48, 87, 118);
+    -fx-font-family: "Georgia";
+}
+
+.fondoTitulo {
+    -fx-background-color: rgb(48, 87, 118);
+}
+
+.textoTitulo {
+    -fx-text-fill: white;   
+    -fx-font-family: "Georgia";
 }
