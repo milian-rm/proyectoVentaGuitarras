@@ -536,4 +536,36 @@ delimiter //
 delimiter ;
 
 
+delimiter //
+	create procedure sp_listarDetalleCompraEspecifico(in p_idOrden int)
+		begin
+			select
+				DC.idDetalleOrden as ID_DETALLE,
+				DC.idOrden as ID_ORDEN,
+				DC.idProducto as ID_PRODUCTO, 
+				DC.cantidad as CANTIDAD,
+				DC.precioUnitario as PRECIO_UNITARIO,
+				(DC.cantidad * DC.precioUnitario) as SUBTOTAL
+			from DetalleCompra DC
+			where DC.idOrden = p_idOrden;
+        end//
+delimiter ;
+
 -- finnn
+call sp_listarDetalleCompraEspecifico(1);
+
+
+call sp_ListarDetalleCompra();
+
+delimiter $$
+create procedure sp_crearOrdenVacia(
+    in p_idUsuario int,
+    out p_idOrdenGenerada int
+)
+begin
+    insert into Compras (idUsuario, fechaOrden, totalOrden, estadoOrden)
+    values (p_idUsuario, NOW(), 0.00, 'Pendiente');
+    
+    set p_idOrdenGenerada = LAST_INSERT_ID();
+end $$
+delimiter ;
