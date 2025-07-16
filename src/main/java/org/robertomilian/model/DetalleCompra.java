@@ -65,6 +65,15 @@ public class DetalleCompra {
     public void setPrecioUnitario(BigDecimal precioUnitario) {
         this.precioUnitario = precioUnitario;
     }
+    
+    // obtener subtotal
+    public BigDecimal getSubtotal() {
+        if (precioUnitario == null) {
+            return BigDecimal.ZERO;
+        }
+        return precioUnitario.multiply(new BigDecimal(cantidad));
+    }
+    
 
     @Override
     public String toString() {

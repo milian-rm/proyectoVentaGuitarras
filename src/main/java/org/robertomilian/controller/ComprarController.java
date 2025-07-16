@@ -8,6 +8,7 @@ import java.util.ResourceBundle;
 import javafx.collections.FXCollections;
 import javafx.collections.ObservableList;
 import javafx.fxml.FXML;
+import javafx.scene.control.TextField;
 import javafx.fxml.Initializable;
 import javafx.scene.control.Spinner;
 import javafx.scene.control.SpinnerValueFactory;
@@ -40,6 +41,9 @@ public class ComprarController extends TablaGuitarrasController implements Initi
 
     @FXML
     private Spinner<Integer> spCantidad;
+
+    @FXML
+    private TextField txtNitCliente;
 
     public void escenaMenuPrincipal() {
         principal.menuPrincipal();
@@ -157,5 +161,35 @@ public class ComprarController extends TablaGuitarrasController implements Initi
     @FXML
     public void agregarProductoAlCarrito() {
         agregarDetalle();
+
+        // ir a la factura (método)
+    }
+
+    @FXML
+    public void finalizarCompra() {
+        if (listaDetalleCompra.isEmpty()) {
+            System.out.println("El carrito esta vacio. No se puede finalizar la compra.");
+            return;
+        }
+
+        BigDecimal totalFactura = calcularTotalFactura();
+        String nitCliente = txtNitCliente.getText().trim();
+        if (nitCliente.isEmpty()) {
+            nitCliente = "C/F";
+        }
+
+        if (principal != null) {
+            principal.mostrarVistaFactura(listaDetalleCompra, totalFactura, numeroOrdenActual, nitCliente);
+        } else {
+            System.out.println("Error: No se ha establecido la referencia al Main.");
+        }
+    }
+
+    private BigDecimal calcularTotalFactura() {
+        BigDecimal total = BigDecimal.ZERO;
+        for (DetalleCompra detalle : listaDetalleCompra) {
+            total = total.add(detalle.getSubtotal());
+        }
+        return total;
     }
 }
