@@ -34,7 +34,7 @@
          </columns>
       </TableView>
       <Button layoutX="73.0" layoutY="585.0" mnemonicParsing="false" onAction="#agregarDetalle" styleClass="estiloBoton" stylesheets="@../styles/comprar.css" text="Agregar al Carrito" />
-      <Button layoutX="66.0" layoutY="631.0" mnemonicParsing="false" styleClass="estiloBoton" stylesheets="@../styles/comprar.css" text="Eliminar del Carrito" />
+      <Button layoutX="66.0" layoutY="631.0" mnemonicParsing="false" onAction="#eliminarDetalle" styleClass="estiloBoton" stylesheets="@../styles/comprar.css" text="Eliminar del Carrito" />
       <Button layoutX="1031.0" layoutY="608.0" mnemonicParsing="false" onAction="#finalizarCompra" styleClass="estiloBoton" stylesheets="@../styles/comprar.css" text="Finalizar Compra" />
       <Label layoutX="297.0" layoutY="94.0" prefHeight="50.0" prefWidth="215.0" text="              Todos los Productos">
          <font>

@@ -159,13 +159,31 @@ public class ComprarController extends TablaGuitarrasController implements Initi
             e.printStackTrace();
         }
     }
+    
+    public void eliminarDetalle() {
+         DetalleCompra detalleSeleccionado = tablaDetalleTemporal.getSelectionModel().getSelectedItem();
+         
+        if(detalleSeleccionado == null) {
+            System.out.println("Debe seleccionar un detalle para eliminar.");
+            return;
+        }
+         
+        int idRegistroDetalle = detalleSeleccionado.getIdDetalleOrden();
 
-    @FXML
-    public void agregarProductoAlCarrito() {
-        agregarDetalle();
+        try (CallableStatement cs = Conexion.getInstancia().getConexion()
+                .prepareCall("call sp_eliminarDetalleCompra(?);")) {
+            cs.setInt(1, idRegistroDetalle);
+            cs.execute();
 
-        // ir a la factura (método)
+            listaDetalleCompra.remove(detalleSeleccionado);
+            tablaDetalleTemporal.refresh();
+            spCantidad.getValueFactory().setValue(1);
+
+        } catch (SQLException e) {
+            e.printStackTrace();
+        }
     }
+
 
     @FXML
     public void finalizarCompra() {
