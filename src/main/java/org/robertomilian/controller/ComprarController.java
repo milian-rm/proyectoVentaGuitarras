@@ -139,22 +139,24 @@ public class ComprarController extends TablaGuitarrasController implements Initi
         }
 
         try (CallableStatement cs = Conexion.getInstancia().getConexion()
-                .prepareCall("call sp_agregarDetalleCompra(?,?,?,?);")) {
+                .prepareCall("call sp_agregarDetalleCompra(?,?,?,?,?);")) {
             cs.setInt(1, detalleCompra.getIdOrden());
             cs.setInt(2, detalleCompra.getIdProducto());
             cs.setInt(3, detalleCompra.getCantidad());
             cs.setBigDecimal(4, detalleCompra.getPrecioUnitario());
+            cs.registerOutParameter(5, java.sql.Types.INTEGER);
+
             cs.execute();
-            System.out.println("Detalle de compra agregado con éxito a la orden " + detalleCompra.getIdOrden());
+
+            int idGenerado = cs.getInt(5);
+            detalleCompra.setIdDetalleOrden(idGenerado);
 
             listaDetalleCompra.add(detalleCompra);
             tablaDetalleTemporal.refresh();
-
             spCantidad.getValueFactory().setValue(1);
 
         } catch (SQLException e) {
             e.printStackTrace();
-            System.out.println("Error al agregar detalle de compra: " + e.getMessage());
         }
     }
 
