@@ -79,7 +79,7 @@ public class Main extends Application{
     public void compras(){
         TablaComprasController tcc = cambiarEscena("TablaComprasView.fxml",985,705).getController();
         tcc.setPrincipal(this);
-    }
+    }    
     public void detalleCompra(){
         TablaDetalleCompraController tdc = cambiarEscena("TablaDetalleCompraView.fxml",985,697).getController();
         tdc.setPrincipal(this);

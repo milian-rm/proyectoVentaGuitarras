@@ -1,17 +1,16 @@
 <?xml version="1.0" encoding="UTF-8"?>
 
-<?import java.net.URL?>
+<?import java.lang.String?>
 <?import javafx.scene.control.Button?>
 <?import javafx.scene.control.Label?>
 <?import javafx.scene.control.Spinner?>
 <?import javafx.scene.control.TableColumn?>
 <?import javafx.scene.control.TableView?>
+<?import javafx.scene.control.TextField?>
 <?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.text.Font?>
 
-<AnchorPane id="AnchorPane" prefHeight="679.0" prefWidth="1337.0" styleClass="mainFxmlClass" xmlns="http://javafx.com/javafx/21" xmlns:fx="http://javafx.com/fxml/1" fx:controller="org.robertomilian.controller.ComprarController">
-    <stylesheets>
-        <URL value="@/styles/comprar.css" />
-    </stylesheets>
+<AnchorPane id="AnchorPane" prefHeight="679.0" prefWidth="1337.0" stylesheets="@../styles/comprar.css" xmlns="http://javafx.com/javafx/23.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="org.robertomilian.controller.ComprarController">
    <children>
       <TableView fx:id="tablaDetalleTemporal" layoutX="871.0" layoutY="154.0" prefHeight="411.0" prefWidth="424.0">
          <columns>
@@ -34,13 +33,26 @@
             <TableColumn fx:id="colFechaCreacion" prefWidth="136.0" text="Fecha de Creación" />
          </columns>
       </TableView>
-      <Button layoutX="98.0" layoutY="585.0" mnemonicParsing="false" onAction="#agregarDetalle" text="Agregar al Carrito" />
-      <Button layoutX="95.0" layoutY="632.0" mnemonicParsing="false" text="Eliminar del Carrito" />
-      <Button layoutX="1031.0" layoutY="608.0" mnemonicParsing="false" text="Finalizar Compra" />
-      <Label layoutX="45.0" layoutY="117.0" text="Todos los Productos" />
-      <Label layoutX="871.0" layoutY="117.0" text="Carrito Actual" />
-      <Button layoutX="1152.0" layoutY="46.0" mnemonicParsing="false" onAction="#escenaMenuPrincipal" text="Regresar" />
+      <Button layoutX="73.0" layoutY="585.0" mnemonicParsing="false" onAction="#agregarDetalle" styleClass="estiloBoton" stylesheets="@../styles/comprar.css" text="Agregar al Carrito" />
+      <Button layoutX="66.0" layoutY="631.0" mnemonicParsing="false" styleClass="estiloBoton" stylesheets="@../styles/comprar.css" text="Eliminar del Carrito" />
+      <Button layoutX="1031.0" layoutY="608.0" mnemonicParsing="false" onAction="#finalizarCompra" styleClass="estiloBoton" stylesheets="@../styles/comprar.css" text="Finalizar Compra" />
+      <Label layoutX="297.0" layoutY="94.0" prefHeight="50.0" prefWidth="215.0" text="              Todos los Productos">
+         <font>
+            <Font name="Arial" size="11.0" />
+         </font></Label>
+      <Label layoutX="1031.0" layoutY="94.0" prefHeight="50.0" prefWidth="142.0" text="Carrito Actual">
+         <font>
+            <Font name="Algerian" size="38.0" />
+         </font></Label>
+      <Button layoutX="29.0" layoutY="31.0" mnemonicParsing="false" onAction="#escenaMenuPrincipal" styleClass="estiloBoton" text="Regresar" />
       <Spinner fx:id="spCantidad" layoutX="302.0" layoutY="608.0" prefHeight="25.0" prefWidth="205.0" />
       <Label layoutX="242.0" layoutY="612.0" text="Cantidad" />
+      <TextField fx:id="txtNitCliente" layoutX="664.0" layoutY="608.0" />
+      <Label layoutX="621.0" layoutY="612.0" text="NIT" />
    </children>
+   <styleClass>
+      <String fx:value="column-header-background" />
+      <String fx:value="estiloBoton" />
+      <String fx:value="estiloTF" />
+   </styleClass>
 </AnchorPane>
