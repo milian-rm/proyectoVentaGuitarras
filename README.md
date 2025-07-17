@@ -589,4 +589,3 @@ begin
     set p_idOrdenGenerada = LAST_INSERT_ID();
 end $$
 delimiter ;
-
