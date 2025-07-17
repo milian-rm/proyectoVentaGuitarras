@@ -100,6 +100,6 @@ public class Usuario {
 
     @Override
     public String toString() {
-        return idUsuario + " | " + nombreUsuario + " | " + apellidoUsuario + " | " + emailUsuario;
+        return idUsuario + " | " + nombreUsuario + " | " + apellidoUsuario;
     }
 }

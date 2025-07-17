@@ -100,6 +100,6 @@ public class Producto {
 
     @Override
     public String toString() {
-        return idProducto + " | " + nombreProducto + " | " + categoria + " | " + marca + " | " + precio;
+        return idProducto + " | " + nombreProducto;
     }
 }

@@ -53,7 +53,6 @@
             <TextField fx:id="txtIdDetalleOrden" styleClass="estiloTF" GridPane.columnIndex="1" />
             <ComboBox fx:id="cbxOrdenes" prefHeight="25.0" prefWidth="294.0" styleClass="estiloTF" GridPane.columnIndex="1" GridPane.rowIndex="1" />
             <ComboBox fx:id="cbxProductos" prefHeight="25.0" prefWidth="294.0" styleClass="estiloTF" GridPane.columnIndex="1" GridPane.rowIndex="2" />
-            <ComboBox fx:id="cbxProductos" prefWidth="150.0" styleClass="estiloTF" stylesheets="@tabladetallecompraview.css" GridPane.columnIndex="4" GridPane.halignment="CENTER" GridPane.rowIndex="2" />
          </children>
       </GridPane>
       <Button fx:id="btnAnterior" layoutX="82.0" layoutY="445.0" mnemonicParsing="false" onAction="#clicAnterior" styleClass="estiloBoton" text="&lt;&lt;" />

@@ -69,6 +69,6 @@ public class Compra {
 
     @Override
     public String toString() {
-        return idOrden + " | " + idUsuario + " | " + fechaOrden + " | " + totalOrden + " | " + estadoOrden;
+        return idOrden + " | " + idUsuario;
     }
 }

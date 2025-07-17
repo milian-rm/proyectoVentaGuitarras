@@ -1,7 +1,6 @@
 <?xml version="1.0" encoding="UTF-8"?>
 
 <?import java.net.URL?>
-<?import javafx.scene.Cursor?>
 <?import javafx.scene.control.Button?>
 <?import javafx.scene.control.ComboBox?>
 <?import javafx.scene.control.DatePicker?>
@@ -55,11 +54,6 @@
             <TextField fx:id="txtIdOrden" styleClass="estiloTF" GridPane.columnIndex="1" />
             <DatePicker fx:id="dpFechaOrden" prefHeight="25.0" prefWidth="296.0" styleClass="estiloTF" GridPane.columnIndex="1" GridPane.rowIndex="2" />
             <ComboBox fx:id="cbxUsuarios" prefHeight="25.0" prefWidth="294.0" styleClass="estiloTF" GridPane.columnIndex="1" GridPane.rowIndex="1" />
-            <ComboBox fx:id="cbxUsuarios" prefWidth="150.0" styleClass="estiloTF" stylesheets="@tablacomprasview.css" GridPane.columnIndex="4" GridPane.halignment="CENTER" GridPane.rowIndex="2">
-               <cursor>
-                  <Cursor fx:constant="DEFAULT" />
-               </cursor>
-            </ComboBox>
          </children>
       </GridPane>
       <Button fx:id="btnAnterior" layoutX="87.0" layoutY="445.0" mnemonicParsing="false" onAction="#clicAnterior" styleClass="estiloBoton" text="&lt;&lt;" />

@@ -23,7 +23,7 @@
             <Image url="@../image/guitarraInicio.png" />
          </image>
       </ImageView>
-      <Label layoutX="56.0" layoutY="116.0" styleClass="estiloTexto" stylesheets="@inicioview.css" text="Bienvenido al Sistema de Gestión de Ventas">
+      <Label layoutX="167.0" layoutY="112.0" styleClass="estiloTexto" stylesheets="@inicioview.css" text="Bienvenido al Sistema de Gestión de Ventas">
          <font>
             <Font size="29.0" />
          </font></Label>
@@ -33,12 +33,11 @@
          </font></Button>
       <AnchorPane prefHeight="95.0" prefWidth="894.0" styleClass="fondoTitulo" stylesheets="@inicioview.css">
          <children>
-            <Label layoutX="411.0" layoutY="32.0" styleClass="textoTitulo" text="Inicio">
+            <Label layoutX="391.0" layoutY="22.0" styleClass="textoTitulo" text="Inicio">
                <font>
-                  <Font size="28.0" />
+                  <Font size="44.0" />
                </font>
             </Label>
-            <Button layoutX="745.0" layoutY="27.0" mnemonicParsing="false" prefHeight="49.0" prefWidth="126.0" styleClass="estiloBotonSecundario" text="Acerca De" />
             <ImageView fitHeight="88.0" fitWidth="364.0" layoutX="14.0" layoutY="7.0" pickOnBounds="true" preserveRatio="true">
                <image>
                   <Image url="@../image/logoGuitarKinal(1).png" />

@@ -125,9 +125,10 @@ public class TablaComprasController implements Initializable {
             dpFechaOrden.setValue(c.getFechaOrden() != null ? c.getFechaOrden().toLocalDate() : null);
             txtTotalOrden.setText(String.valueOf(c.getTotalOrden()));
 
-            for (Usuario u : listaUsuarios) {
+            for (Usuario u : cbxUsuarios.getItems()) {
                 if (u.getIdUsuario() == c.getIdUsuario()) {
                     cbxUsuarios.setValue(u);
+                    System.out.println(u);
                     break;
                 }
             }
@@ -160,15 +161,22 @@ public class TablaComprasController implements Initializable {
     private void cargarUsuarios() {
         listaUsuarios = FXCollections.observableArrayList(obtenerUsuariosParaComboBox());
         cbxUsuarios.setItems(listaUsuarios);
+        System.out.println("Usuarios cargados en ComboBox:");
+        for (Usuario u : cbxUsuarios.getItems()) {
+            System.out.println(u);
+        }
     }
 
     private Compra obtenerDatosFormulario() {
         int idOrden = txtIdOrden.getText().isEmpty() ? 0 : Integer.parseInt(txtIdOrden.getText());
         
-        int idUsuario = 0;
-        if (cbxUsuarios.getSelectionModel().getSelectedItem() != null) {
-            idUsuario = cbxUsuarios.getSelectionModel().getSelectedItem().getIdUsuario();
-        }
+//        int idUsuario = 0;
+//        if (cbxUsuarios.getSelectionModel().getSelectedItem() != null) {
+//            idUsuario = cbxUsuarios.getSelectionModel().getSelectedItem().getIdUsuario();
+//        }
+        
+        Usuario usuarioSeleccionado = cbxUsuarios.getSelectionModel().getSelectedItem();
+        int idUsuario = usuarioSeleccionado != null ? usuarioSeleccionado.getIdUsuario(): 0;
 
         LocalDateTime fechaOrden = null;
         if (dpFechaOrden.getValue() != null) {
@@ -271,6 +279,7 @@ public class TablaComprasController implements Initializable {
         Compra compra = obtenerDatosFormulario();
         try {
             if (tipoOperacion == Operacion.NUEVO) {
+                Usuario usuarioSeleccionado = cbxUsuarios.getSelectionModel().getSelectedItem();
                 try (CallableStatement cs = Conexion.getInstancia().getConexion()
                                                     .prepareCall("call sp_agregarCompra(?,?,?,?);")) {
                     cs.setInt(1, compra.getIdUsuario());
@@ -281,6 +290,7 @@ public class TablaComprasController implements Initializable {
                     System.out.println("Compra agregada con éxito.");
                 }
             } else if (tipoOperacion == Operacion.EDITAR) {
+                Usuario usuarioSeleccionado = cbxUsuarios.getSelectionModel().getSelectedItem();
                 try (CallableStatement cs = Conexion.getInstancia().getConexion()
                                                     .prepareCall("call sp_editarCompra(?,?,?,?,?);")) {
                     cs.setInt(1, compra.getIdOrden());
