@@ -418,40 +418,43 @@ DELIMITER ;
 
 
 DELIMITER $$
-
 create procedure sp_agregarDetalleCompra(
     in p_idOrden int,
     in p_idProducto int,
     in p_cantidad int,
-    in p_precioUnitario decimal(10,2))
+    in p_precioUnitario decimal(10,2),
+    out p_idDetalleOrden int
+)
 begin
     insert into DetalleCompra(idOrden, idProducto, cantidad, precioUnitario)
     values(p_idOrden, p_idProducto, p_cantidad, p_precioUnitario);
+    
+    set p_idDetalleOrden = LAST_INSERT_ID();
 end $$
-
 DELIMITER ;
 
-call sp_agregarDetalleCompra(1, 1, 1, 1200.00); 
-call sp_agregarDetalleCompra(2, 3, 1, 2500.00); 
-call sp_agregarDetalleCompra(3, 5, 1, 700.00); 
-call sp_agregarDetalleCompra(4, 4, 1, 300.00); 
-call sp_agregarDetalleCompra(5, 2, 1, 1800.00); 
-call sp_agregarDetalleCompra(1, 7, 2, 8.50); 
-call sp_agregarDetalleCompra(3, 8, 1, 60.00); 
-call sp_agregarDetalleCompra(6, 9, 1, 1000.00);
-call sp_agregarDetalleCompra(7, 6, 1, 250.00);
-call sp_agregarDetalleCompra(8, 7, 3, 8.50);
-call sp_agregarDetalleCompra(9, 10, 1, 950.00);
-call sp_agregarDetalleCompra(10, 11, 1, 120.00);
-call sp_agregarDetalleCompra(11, 12, 1, 45.00);
-call sp_agregarDetalleCompra(12, 13, 2, 7.00);
-call sp_agregarDetalleCompra(13, 14, 1, 35.00);
-call sp_agregarDetalleCompra(14, 15, 1, 25.00);
-call sp_agregarDetalleCompra(15, 1, 1, 1200.00);
+set @idDetalleGenerado = 0;
+
+call sp_agregarDetalleCompra(1, 1, 1, 1200.00, @idDetalleGenerado);
+call sp_agregarDetalleCompra(1, 2, 3, 2500.00, @idDetalleGenerado);
+call sp_agregarDetalleCompra(1, 3, 5, 700.00, @idDetalleGenerado);
+call sp_agregarDetalleCompra(1, 4, 4, 300.00, @idDetalleGenerado);
+call sp_agregarDetalleCompra(1, 5, 2, 1800.00, @idDetalleGenerado);
+call sp_agregarDetalleCompra(1, 1, 7, 8.50, @idDetalleGenerado);
+call sp_agregarDetalleCompra(1, 3, 8, 60.00, @idDetalleGenerado);
+call sp_agregarDetalleCompra(1, 6, 9, 1000.00, @idDetalleGenerado);
+call sp_agregarDetalleCompra(1, 7, 6, 250.00, @idDetalleGenerado);
+call sp_agregarDetalleCompra(1, 8, 7, 8.50, @idDetalleGenerado);
+call sp_agregarDetalleCompra(1, 9, 10, 950.00, @idDetalleGenerado);
+call sp_agregarDetalleCompra(1, 10, 11, 120.00, @idDetalleGenerado);
+call sp_agregarDetalleCompra(1, 11, 12, 45.00, @idDetalleGenerado);
+call sp_agregarDetalleCompra(1, 12, 13, 7.00, @idDetalleGenerado);
+call sp_agregarDetalleCompra(1, 13, 14, 35.00, @idDetalleGenerado);
+call sp_agregarDetalleCompra(1, 14, 15, 25.00, @idDetalleGenerado);
+call sp_agregarDetalleCompra(1, 15, 1, 1200.00, @idDetalleGenerado);
 
 
 DELIMITER $$
-
 create procedure sp_listarDetalleCompra()
 begin
     select
@@ -465,7 +468,6 @@ begin
     from DetalleCompra DC
     join Productos P on DC.idProducto = P.idProducto;
 end $$
-
 DELIMITER ;
 
 call sp_listarDetalleCompra();
